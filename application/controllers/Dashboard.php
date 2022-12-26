@@ -4,8 +4,11 @@ class Dashboard extends CI_Controller {
 
 
 	public function index()
-	{
-       $this->load->view('templates');
+	{	
+		$this->template->content->view('dashboard');
+       
+		// Publish the template
+		$this->template->publish();
 	}
 
 }

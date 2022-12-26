@@ -123,19 +123,20 @@
                                 <li><a class="nav-link" href="calendar.html">Calendar</a></li>
                             </ul>
                         </li>
-       
+
                     </ul>
                 </aside>
             </div>
 
             <!-- Main Content -->
             <div class="main-content">
-                <section class="section">
-                    <div class="row ">
 
 
-        
-                </section>
+                <?php
+                // This is the main content partial
+                echo $this->template->content;
+                ?>
+
 
 
                 <div class="settingSidebar">
