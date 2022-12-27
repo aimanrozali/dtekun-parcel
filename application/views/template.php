@@ -7,15 +7,15 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Otika - Admin Dashboard Template</title>
+    <title>D'Tekun Parcel</title>
     <!-- General CSS Files -->
-    <link rel="stylesheet" href=" assets/css/app.min.css">
+    <link rel="stylesheet" href=" <?php echo base_url(); ?>/assets/css/app.min.css">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/components.css">
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='<?php echo base_url(); ?>/assets/img/favicon.ico' />
 </head>
 
 <body>
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url(); ?>/assets/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
                             <div class="dropdown-title">Hello Sarah Smith</div>
                             <a href="profile.html" class="dropdown-item has-icon"> <i class="far
@@ -99,7 +99,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html"> <img alt="image" src="assets/img/logo.png" class="header-logo" /> <span class="logo-name">Otika</span>
+                        <a href="index.html"> <img alt="image" src="<?php echo base_url(); ?>/assets/img/logo.png" class="header-logo" /> <span class="logo-name">Otika</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
@@ -111,7 +111,7 @@
                             <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Parcels</span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="widget-chart.html">Record Parcels</a></li>
-                                <li><a class="nav-link" href="widget-data.html">Parcels List</a></li>
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Parcels List</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -241,15 +241,15 @@
 
 
     <!-- General JS Scripts -->
-    <script src="assets/js/app.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/app.min.js"></script>
     <!-- JS Libraies -->
-    <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/apexcharts/apexcharts.min.js"></script>
     <!-- Page Specific JS File -->
-    <script src="assets/js/page/index.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/page/index.js"></script>
     <!-- Template JS File -->
-    <script src="assets/js/scripts.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/scripts.js"></script>
     <!-- Custom JS File -->
-    <script src="assets/js/custom.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/custom.js"></script>
 </body>
 
 
