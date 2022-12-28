@@ -11,4 +11,12 @@ class Parcel extends CI_Controller {
 		$this->template->publish();
 	}
 
+	public function recordParcel()
+	{	
+		$this->template->content->view('record-parcel');
+       
+		// Publish the template
+		$this->template->publish();
+	}
+
 }
