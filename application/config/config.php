@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://34.175.235.111/dtekun-parcel/';
+$ipaddr = $_SERVER['SERVER_ADDR'];
+$config['base_url'] = 'http://'.$ipaddr.'/dtekun-parcel/';
 
 /*
 |--------------------------------------------------------------------------
