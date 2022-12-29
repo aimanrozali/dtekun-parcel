@@ -112,6 +112,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="<?php echo base_url('Parcel/recordParcel'); ?>">Record Parcels</a></li>
                                 <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Parcels List</a></li>
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/trackParcel'); ?>">Track Parcels</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

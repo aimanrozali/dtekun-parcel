@@ -19,4 +19,11 @@ class Parcel extends CI_Controller {
 		$this->template->publish();
 	}
 
+	public function trackParcel()
+	{	
+		$this->template->content->view('track-parcel');
+       
+		// Publish the template
+		$this->template->publish();
+	}
 }
