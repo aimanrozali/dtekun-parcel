@@ -1,27 +1,9 @@
 "use strict";
 
 
-var draw = Chart.controllers.line.prototype.draw;
-Chart.controllers.lineShadow = Chart.controllers.line.extend({
-	draw: function () {
-		draw.apply(this, arguments);
-		var ctx = this.chart.chart.ctx;
-		var _stroke = ctx.stroke;
-		ctx.stroke = function () {
-			ctx.save();
-			ctx.shadowColor = '#00000075';
-			ctx.shadowBlur = 10;
-			ctx.shadowOffsetX = 8;
-			ctx.shadowOffsetY = 8;
-			_stroke.apply(this, arguments)
-			ctx.restore();
-		}
-	}
-});
-
-var ctx = document.getElementById("myChart").getContext('2d');
+var ctx = document.getElementById("myChart2").getContext('2d');
 var myChart = new Chart(ctx, {
-	type: 'line',
+	type: 'bar',
 	data: {
 		labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 		datasets: [{
@@ -53,8 +35,7 @@ var myChart = new Chart(ctx, {
 			}],
 			xAxes: [{
 				ticks: {
-					display: false,
-					fontColor: "#9aa0ac", // Font Color
+					display: false
 				},
 				gridLines: {
 					display: false
@@ -64,7 +45,10 @@ var myChart = new Chart(ctx, {
 	}
 });
 
-var ctx = document.getElementById("myChart2").getContext('2d');
+"use strict";
+
+
+var ctx = document.getElementById("revChart").getContext('2d');
 var myChart = new Chart(ctx, {
 	type: 'bar',
 	data: {
