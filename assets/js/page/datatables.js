@@ -44,9 +44,4 @@ $('#save-stage').DataTable({
   "scrollX": true,
   stateSave: true
 });
-$('#tableExport').DataTable({
-  dom: 'Bfrtip',
-  buttons: [
-    'copy', 'csv', 'excel', 'pdf', 'print'
-  ]
-});
+

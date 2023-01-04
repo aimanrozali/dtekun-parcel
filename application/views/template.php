@@ -118,10 +118,7 @@
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Admin</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="chat.html">Chat</a></li>
-                                <li><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                                <li><a class="nav-link" href="blog.html">Blog</a></li>
-                                <li><a class="nav-link" href="calendar.html">Calendar</a></li>
+
                             </ul>
                         </li>
 
@@ -256,6 +253,30 @@
     <script src="<?php echo base_url(); ?>/assets/bundles/chartjs/chart.min.js"></script>
     <!-- Page Specific JS File -->
     <script src="<?php echo base_url(); ?>/assets/js/page/chart-chartjs.js"></script>
+
+    <!-- General JS Scripts -->
+    <script src="<?php echo base_url(); ?>assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="<?php echo base_url(); ?>assets/bundles/datatables/datatables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Page Specific JS File -->
+    <script src="<?php echo base_url(); ?>assets/js/page/datatables.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/js/page/chart-chartjs.js"></script> -->
+    <!-- Template JS File -->
+    <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+    <!-- JS Libraies -->
+    <script src="<?php echo base_url(); ?>assets/bundles/sweetalert/sweetalert.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="<?php echo base_url(); ?>assets/js/page/sweetalert.js"></script>
+    <!-- datatables.html  21 Nov 2019 03:55:25 GMT -->
+    <!-- Custom JS File -->
+    <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+
+
 </body>
 
 
