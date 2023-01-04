@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/components.css">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='<?php echo base_url(); ?>/assets/img/favicon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='<?php echo base_url(); ?>/assets/img/logo.png' />
 </head>
 
 <body>
@@ -99,7 +99,7 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html"> <img alt="image" src="<?php echo base_url(); ?>/assets/img/logo.png" class="header-logo" /> <span class="logo-name">Otika</span>
+                        <a href="index.html"> <img alt="image" src="<?php echo base_url(); ?>/assets/img/logo.png" class="header-logo" /> <span class="logo-name">D'Tekun</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
@@ -112,6 +112,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="<?php echo base_url('Parcel/recordParcel'); ?>">Record Parcels</a></li>
                                 <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Parcels List</a></li>
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/trackParcel'); ?>">Track Parcels</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -250,6 +251,11 @@
     <script src="<?php echo base_url(); ?>/assets/js/scripts.js"></script>
     <!-- Custom JS File -->
     <script src="<?php echo base_url(); ?>/assets/js/custom.js"></script>
+
+    <!-- JS Libraies -->
+    <script src="<?php echo base_url(); ?>/assets/bundles/chartjs/chart.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="<?php echo base_url(); ?>/assets/js/page/chart-chartjs.js"></script>
 </body>
 
 
