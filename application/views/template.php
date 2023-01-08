@@ -2,20 +2,23 @@
 <html lang="en">
 
 
-<!-- index.html  21 Nov 2019 03:44:50 GMT -->
+<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>D'Tekun Parcel</title>
+    <title>D'Tekun Parcel </title>
     <!-- General CSS Files -->
-    <link rel="stylesheet" href=" <?php echo base_url(); ?>/assets/css/app.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/app.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/components.css">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css">
     <link rel='shortcut icon' type='image/x-icon' href='<?php echo base_url(); ?>/assets/img/logo.png' />
+
 </head>
 
 <body>
@@ -28,67 +31,17 @@
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
 									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a></li>
 
                     </ul>
                 </div>
                 <ul class="navbar-nav navbar-right">
-
-                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg"><i data-feather="bell" class="bell"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
-                            <div class="dropdown-header">
-                                Notifications
-                                <div class="float-right">
-                                    <a href="#">Mark All As Read</a>
-                                </div>
-                            </div>
-                            <div class="dropdown-list-content dropdown-list-icons">
-                                <a href="#" class="dropdown-item dropdown-item-unread"> <span class="dropdown-item-icon bg-primary text-white"> <i class="fas
-												fa-code"></i>
-                                    </span> <span class="dropdown-item-desc"> Template update is
-                                        available now! <span class="time">2 Min
-                                            Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="far
-												fa-user"></i>
-                                    </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
-                                            Sugiharto</b> are now friends <span class="time">10 Hours
-                                            Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-success text-white"> <i class="fas
-												fa-check"></i>
-                                    </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
-                                        moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
-                                            Hours
-                                            Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-danger text-white"> <i class="fas fa-exclamation-triangle"></i>
-                                    </span> <span class="dropdown-item-desc"> Low disk space. Let's
-                                        clean it! <span class="time">17 Hours Ago</span>
-                                    </span>
-                                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="fas
-												fa-bell"></i>
-                                    </span> <span class="dropdown-item-desc"> Welcome to Otika
-                                        template! <span class="time">Yesterday</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="dropdown-footer text-center">
-                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url(); ?>/assets/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url(); ?>/assets
+/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <div class="dropdown-title">Hello Sarah Smith</div>
-                            <a href="profile.html" class="dropdown-item has-icon"> <i class="far
-										fa-user"></i> Profile
-                            </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
-                                Activities
-                            </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-                                Settings
-                            </a>
-                            <div class="dropdown-divider"></div>
+
                             <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
@@ -99,44 +52,46 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html"> <img alt="image" src="<?php echo base_url(); ?>/assets/img/logo.png" class="header-logo" /> <span class="logo-name">D'Tekun</span>
+                        <a href="index.html"> <img alt="image" src="<?php echo base_url(); ?>/assets
+/img/logo.png" class="header-logo" /> <span class="logo-name">D'Tekun</span>
                         </a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Main</li>
-                        <li class="dropdown active">
+                        <li class="dropdown">
                             <a href="<?php echo base_url('Dashboard/index'); ?>" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Parcels</span></a>
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="box"></i><span>Parcel</span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="<?php echo base_url('Parcel/recordParcel'); ?>">Record Parcels</a></li>
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Parcels List</a></li>
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/trackParcel'); ?>">Track Parcels</a></li>
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Parcel List</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Admin</span></a>
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="dollar-sign"></i><span>Financial</span></a>
                             <ul class="dropdown-menu">
-
+                                <li><a class="nav-link" href="<?php echo base_url('Finance/recordFinance'); ?>">Record Finance</a></li>
+                                <li><a class="nav-link" href="<?php echo base_url('Finance/financialHistory'); ?>">Financial History</a></li>
                             </ul>
                         </li>
-
+                        <li class="dropdown">
+                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="users"></i><span>User</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/trackParcel'); ?>">Track Parcel</a></li>
+                            
+                            </ul>
+                        </li>
                     </ul>
                 </aside>
             </div>
-
             <!-- Main Content -->
             <div class="main-content">
-
 
                 <?php
                 // This is the main content partial
                 echo $this->template->content;
                 ?>
-
-
-
                 <div class="settingSidebar">
                     <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
                     </a>
@@ -225,25 +180,25 @@
                     </div>
                 </div>
             </div>
-
             <footer class="main-footer">
                 <div class="footer-left">
-                    <a href="templateshub.net">D'Tekun Parcel Universiti Sains Malaysia</a></a>
+                    <a href="templateshub.net">D'Tekun Parcel USM</a></a>
                 </div>
                 <div class="footer-right">
                 </div>
             </footer>
         </div>
-
     </div>
-
-
     <!-- General JS Scripts -->
     <script src="<?php echo base_url(); ?>/assets/js/app.min.js"></script>
     <!-- JS Libraies -->
     <script src="<?php echo base_url(); ?>/assets/bundles/apexcharts/apexcharts.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
     <!-- Page Specific JS File -->
     <script src="<?php echo base_url(); ?>/assets/js/page/index.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/page/datatables.js"></script>
     <!-- Template JS File -->
     <script src="<?php echo base_url(); ?>/assets/js/scripts.js"></script>
     <!-- Custom JS File -->
@@ -254,31 +209,9 @@
     <!-- Page Specific JS File -->
     <script src="<?php echo base_url(); ?>/assets/js/page/chart-chartjs.js"></script>
 
-    <!-- General JS Scripts -->
-    <script src="<?php echo base_url(); ?>assets/js/app.min.js"></script>
-    <!-- JS Libraies -->
-    <script src="<?php echo base_url(); ?>assets/bundles/datatables/datatables.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/bundles/jquery-ui/jquery-ui.min.js"></script>
-
-    <!-- Page Specific JS File -->
-    <script src="<?php echo base_url(); ?>assets/js/page/datatables.js"></script>
-    <!-- <script src="<?php echo base_url(); ?>assets/js/page/chart-chartjs.js"></script> -->
-    <!-- Template JS File -->
-    <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
-    <!-- Custom JS File -->
-    <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
-    <!-- JS Libraies -->
-    <script src="<?php echo base_url(); ?>assets/bundles/sweetalert/sweetalert.min.js"></script>
-    <!-- Page Specific JS File -->
-    <script src="<?php echo base_url(); ?>assets/js/page/sweetalert.js"></script>
-    <!-- datatables.html  21 Nov 2019 03:55:25 GMT -->
-    <!-- Custom JS File -->
-    <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
-
-
 </body>
 
 
+<!-- blank.html  21 Nov 2019 03:54:41 GMT -->
 
 </html>

@@ -1,73 +1,63 @@
-<section>
-
+<section class="section">
+  <div class="section-body">
     <div class="card">
-                <div class="card-header">
-                    <h4>Parcel Information</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="inputTagNum">Tagging number</label>
-                        <input type="text" class="form-control" id="inputTagNum" placeholder="e.g. #12345">
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="inputTrackNum">Tracking number</label>
-                        <input type="text" class="form-control" id="inputTrackNum" placeholder="Enter tracking no.">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="inputCust">Customer Name</label>
-                        <input type="text" class="form-control" id="inputCust" placeholder="Enter customer name">
-                      </div>
-                    </div>
-                    <div class="form-row">
-                    <div class="form-group col-md-4">
-                    <label>Phone Number</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-phone"></i>
-                          </div>
-                        </div>
-                        <input type="text" class="form-control phone-number" placeholder="e.g. 0123456789">
-                      </div>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="inputCourier">Courier Type</label>
-                        <select id="inputCourier" class="form-control">
-                          <option selected>Choose...</option>
-                          <option>J&T Express</option>
-                          <option>Pos Laju</option>
-                          <option>Shopee Express</option>
-                          <option>DHL Express</option>
-                          <option>Citylink</option>
-                          <option>GDex</option>
-                          <option>Skynet Express</option>
-                        </select>
-                      </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputStatus">Parcel Status</label>
-                        <select id="inputStatus" class="form-control">
-                          <option selected>Choose...</option>
-                          <option>Arrived</option>
-                          <option>Claimed</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-4">
-                      <label>Date Arrived</label>
-                      <input type="date" class="form-control">
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label>Date Claimed</label>
-                      <input type="date" class="form-control">
-                    </div>
-                    </div>
-                    <div class="form-group mb-0">
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                    <button class="btn btn-primary">Submit</button>
-                  </div>
-                </div>
+      <div class="card-header">
+        <h4>Insert Parcel Details</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-3 col-form-label">Tracking Number</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Enter tracking number">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-3 col-form-label">Name</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Enter name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-3 col-form-label">Phone Number</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Enter phone number">
+          </div>
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <div class="col-form-label col-sm-3 pt-0">Courier</div>
+            <div class="col-sm-9">
+              <div class="form-group">
+                <select class="form-control">
+                  <option>Choose courier</option>
+                  <option>J&T Express</option>
+                  <option>Shopee Express</option>
+                  <option>DHL</option>
+                  <option>Pgeon</option>
+                </select>
+              </div>
+            </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-3">Parcel Size</div>
+          <div class="col-sm-9">
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="small" value="small" name="size">
+                <label class="form-check-label" for="small">Small</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="medium" value="medium" name="size">
+                <label class="form-check-label" for="medium">Medium</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="large" value="large" name="size">
+                <label class="form-check-label" for="large">Large</label>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    </div>
+        <button class="btn btn-primary float-right">Save</button>
+      </div>
 </section>

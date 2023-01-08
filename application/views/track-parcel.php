@@ -1,17 +1,14 @@
 <section>
   <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        <h4>Parcel Tracking</h4>
-      </div>
-      <div class="card-body">
-        <form class="form-inline">
-          <input class="form-control" type="search" placeholder="Enter tracking number" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form>
-        </nav>
-      </div>
 
+    <div class="alert alert-info alert-has-icon">
+      <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+      <div class="alert-body">
+        <div class="alert-title">Welcome to D'Tekun Parcel </div>
+        Please enter your tracking number to see your parcel status.
+      </div>
+    </div>
+    <div class="card">
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-striped" id="table-1">
@@ -45,14 +42,14 @@
 
                 <td class="text-center"> ABC124</td>
                 <td class="text-center">
-                  Amirul Irfan
+                  Aiman Rozali
                 </td>
                 <td class="text-center">
                   JNT
                 </td>
                 <td class="text-center">2018-01-20</td>
                 <td class="text-center">
-                  <div class="badge badge-success badge-shadow">Claimed</div>
+                  <div class="badge badge-warning badge-shadow">Arrived</div>
                 </td>
 
               </tr>
@@ -61,7 +58,23 @@
 
                 <td class="text-center"> ABC125</td>
                 <td class="text-center">
-                  Amirul Irfan
+                  Irdina
+                </td>
+                <td class="text-center">
+                  JNT
+                </td>
+                <td class="text-center">2018-01-20</td>
+                <td class="text-center">
+                  <div class="badge badge-warning badge-shadow">Arrived</div>
+                </td>
+
+              </tr>
+
+              <tr>
+
+                <td class="text-center"> ABC125</td>
+                <td class="text-center">
+                  Alya Mazlan
                 </td>
                 <td class="text-center">
                   JNT
