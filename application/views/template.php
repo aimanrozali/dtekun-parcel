@@ -203,7 +203,7 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    <a href="templateshub.net">D'Tekun Parcel USM</a></a>
+                    <a href="<?php echo base_url(); ?>">D'Tekun Parcel USM</a></a>
                 </div>
                 <div class="footer-right">
                 </div>
