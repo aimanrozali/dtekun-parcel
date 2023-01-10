@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Total Cash</label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control" id="inputEmail3" placeholder="Enter Cash Total">
+                        <input type="number" class="form-control" id="inputEmail3" placeholder="Enter Total Cash">
                     </div>
                 </div>
                 <div class="form-group row">
