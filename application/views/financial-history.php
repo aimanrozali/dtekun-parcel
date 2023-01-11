@@ -42,7 +42,7 @@
                                         <td class="text-center">Aiman</td>
                                         <td class="text-center">4.50</td>
                                         <td class="text-center">4.50</td>
-                                        <td class="text-center">4.50/td>
+                                        <td class="text-center">4.50</td>
                                         <td class="text-center">4.50</td>
 
                                     </tr>
