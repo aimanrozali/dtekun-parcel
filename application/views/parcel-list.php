@@ -54,7 +54,7 @@
                         <?php } else { ?>
 
                           <button type="button" data-toggle="modal" data-target="#basicModal"
-                            class="btn btn-warning parcel_status" uid="<?php echo $data->parcel_id; ?>"
+                            class="btn btn-warning parcel_status" uid="<?php echo $data->tracking_number; ?>"
                             ustatus="<?php echo $data->parcel_status; ?>">Arrived</button>
 
                         <?php } ?>

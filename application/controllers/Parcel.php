@@ -54,8 +54,8 @@ class Parcel extends CI_Controller
 	public function change_status()
 	{
 		//get hidden values in variables
-		$parcel_id = $this->input->post('parcel_id');
-		$status = $this->input->post('status');
+		$tracking_number = $this->input->post('tracking_number');
+		$status = $this->input->post('parcel_status');
 
 		//check condition
 		if ($status == '1') {
@@ -64,9 +64,9 @@ class Parcel extends CI_Controller
 			$parcel_status = '1';
 		}
 
-		$data = array('status' => $parcel_status);
+		$data = array('parcel_status' => $parcel_status);
 
-		$this->db->where('tracking_number', $parcel_id);
+		$this->db->where('tracking_number', $tracking_number);
 		$this->db->update('parcel', $data); //Update status here
 
 		return redirect('parcel');
