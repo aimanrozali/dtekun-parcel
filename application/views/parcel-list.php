@@ -83,7 +83,7 @@
     var tracking_number = $(this).attr('uid'); //get attribute value in variable
     var parcel_status = $(this).attr('ustatus'); //get attribute value in variable
 
-    $('#parcel_id').val(tracking_number); //pass attribute value in ID
+    $('#tracking_number').val(tracking_number); //pass attribute value in ID
     $('#parcel_status').val(parcel_status);  //pass attribute value in ID
 
   });
