@@ -66,8 +66,11 @@ class Parcel extends CI_Controller
 
 		$data = array('parcel_status' => $parcel_status);
 
+		$dateClaimed = date("YYYY-mm-dd");
+
 		$this->db->where('tracking_number', $tracking_number);
 		$this->db->update('Parcel', $data); //Update status here
+		$this->db->update('Parcel', array('date_claimed' => $dateClaimed));
 
 		return redirect('parcel');
 	}
