@@ -67,7 +67,7 @@ class Parcel extends CI_Controller
 		$data = array('parcel_status' => $parcel_status);
 
 		$this->db->where('tracking_number', $tracking_number);
-		$this->db->update('parcel', $data); //Update status here
+		$this->db->update('Parcel', $data); //Update status here
 
 		return redirect('parcel');
 	}
