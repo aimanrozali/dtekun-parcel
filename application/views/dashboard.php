@@ -11,8 +11,8 @@
                                         <h5 class="font-15">Parcel List</h5>
                                         <h2 class="mb-3 font-18">
                                             <?php
-                                                $totalRows = $this->db->count_all('parcel');
-                                                echo $totalRows;
+                                            $totalRows = $this->db->count_all('Parcel');
+                                            echo $totalRows;
                                             ?>
                                         </h2>
 
@@ -37,12 +37,12 @@
                                     <div class="card-content">
                                         <h5 class="font-15"> Parcel Received Today</h5>
                                         <h2 class="mb-3 font-18">
-                                        <?php         
-                                                $this->db->select('*');
-                                                $this->db->from('parcel');
-                                                $this->db->where('status', '0');
-                                                $this->db->where("DATE(dateArrived) = CURDATE()", NULL, FALSE);
-                                                echo $this->db->count_all_results();
+                                            <?php
+                                            $this->db->select('*');
+                                            $this->db->from('Parcel');
+                                            $this->db->where('parcel_status', '0');
+                                            $this->db->where("DATE(date_arrived) = CURDATE()", NULL, FALSE);
+                                            echo $this->db->count_all_results();
                                             ?>
                                         </h2>
 
@@ -67,12 +67,12 @@
                                     <div class="card-content">
                                         <h5 class="font-15">Parcel Claimed Today</h5>
                                         <h2 class="mb-3 font-18">
-                                        <?php         
-                                                $this->db->select('*');
-                                                $this->db->from('parcel');
-                                                $this->db->where('status', '1');
-                                                $this->db->where("DATE(dateArrived) = CURDATE()", NULL, FALSE);
-                                                echo $this->db->count_all_results();
+                                            <?php
+                                            $this->db->select('*');
+                                            $this->db->from('Parcel');
+                                            $this->db->where('parcel_status', '1');
+                                            $this->db->where("DATE(date_arrived) = CURDATE()", NULL, FALSE);
+                                            echo $this->db->count_all_results();
                                             ?>
                                         </h2>
                                     </div>
