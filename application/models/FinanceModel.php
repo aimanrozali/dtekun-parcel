@@ -11,6 +11,7 @@ class FinanceModel extends CI_Model
   public function fetchAllFinance()
   {
     //Queries here
+
   }
 }
 
