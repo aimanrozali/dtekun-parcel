@@ -66,6 +66,8 @@ class Parcel extends CI_Controller
 
 		$data = array('parcel_status' => $parcel_status);
 
+		date_default_timezone_set("Asia/Kuala_Lumpur");
+
 		$dateClaimed = date("d/m/Y");
 
 		$this->db->where('tracking_number', $tracking_number);
