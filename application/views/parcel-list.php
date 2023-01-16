@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <section class="section">
   <div class="section-body">
     <div class="row">
@@ -17,100 +18,42 @@
                     <th class="text-center"> Tracking Number </th>
                     <th class="text-center"> Customer Name</th>
                     <th class="text-center"> Courier Type</th>
+                    <th class="text-center"> Size</th>
                     <th class="text-center"> Date Arrived</th>
                     <th class="text-center"> Status</th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td class="text-center">12345</td>
-                    <td class="text-center">Irfan</td>
-                    <td class="text-center">JnT</td>
-                    <td class="text-center">2018-01-20</td>
-                    <td class="text-center">
-                      <div class="btn-group mb-2">
-                        <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Arrived
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Arrived</a>
-                          <a class="dropdown-item" href="#">Claimed</a>
-                        </div>
-                      </div>
-                    </td>
+                <?php 
+	  		$i = 1;
+	  		foreach ($data as $data) {
+  		?>
+  		<tr>
+  			<td class="text-center"><?php echo $i; ?></td>
+  			<td class="text-center"><?php echo $data->trackingNum; ?></td>
+  			<td class="text-center"><?php echo $data->custName; ?></td>
+  			<td class="text-center"><?php echo $data->courier; ?></td>
+        <td class="text-center"><?php echo $data->size; ?></td>
+        <td class="text-center"><?php echo $data->dateArrived; ?></td>
+  			<td class="text-center">
+  				<?php if($data->status == '1'){ ?>
 
-                  </tr>
+  					<button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-success parcel_status" uid="<?php echo $data->parcel_id; ?>"  ustatus="<?php echo $data->status; ?>">Claimed</button>
+                   
+  				<?php }else{ ?>
 
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td class="text-center">12346</td>
-                    <td class="text-center">Aiman</td>
-                    <td class="text-center">ShopeeExpress</td>
-                    <td class="text-center">2018-01-20</td>
-                    <td class="text-center">
-                      <div class="btn-group mb-2">
-                        <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Claimed
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Arrived</a>
-                          <a class="dropdown-item" href="#">Claimed</a>
-                        </div>
-                      </div>
-                    </td>
+  					<button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-warning parcel_status" uid="<?php echo $data->parcel_id; ?>"  ustatus="<?php echo $data->status; ?>">Arrived</button>
 
-                  </tr>
+  				<?php } ?>
 
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td class="text-center">12347</td>
-                    <td class="text-center">Irdina</td>
-                    <td class="text-center">JnT</td>
-                    <td class="text-center">2018-01-20</td>
-                    <td class="text-center">
-                      <div class="btn-group mb-2">
-                      <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Claimed
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Arrived</a>
-                          <a class="dropdown-item" href="#">Claimed</a>
-                        </div>
-                      </div>
-                    </td>
+          
+  			</td>
+  		</tr>
 
-                  </tr>
-
-                  <tr>
-                    <td>
-                      1
-                    </td>
-                    <td class="text-center">12348</td>
-                    <td class="text-center">Alya</td>
-                    <td class="text-center">JnT</td>
-                    <td class="text-center">2018-01-20</td>
-                    <td class="text-center">
-                      <div class="btn-group mb-2">
-                      <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Arrived
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Arrived</a>
-                          <a class="dropdown-item" href="#">Claimed</a>
-                        </div>
-                      </div>
-                    </td>
-
-                  </tr>
-
+      
+  		<?php $i++; } ?>
+      
                 </tbody>
               </table>
             </div>
@@ -120,3 +63,44 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+	$(document).on('click','.parcel_status',function(){
+
+		var parcel_id = $(this).attr('uid'); //get attribute value in variable
+		var status = $(this).attr('ustatus'); //get attribute value in variable
+
+		$('#parcel_id').val(parcel_id); //pass attribute value in ID
+		$('#parcel_status').val(status);  //pass attribute value in ID
+
+	});
+</script>
+
+<form action="<?php echo base_url(); ?>Parcel/change_status" method="post"> 
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Verify Parcel Status</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              
+              <div class="modal-body">
+                Do you want to change the parcel status? 
+                
+					<input type="hidden" name="parcel_id" id="parcel_id" value="">
+					<input type="hidden" name="status" id="parcel_status" value="">
+              </div>
+              <div class="modal-footer bg-whitesmoke br">
+                <button type="submit"  id="swal-2" name="submit" class="btn btn-primary">Change</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+            
+        </form>
+
+          </div>
+        </div>

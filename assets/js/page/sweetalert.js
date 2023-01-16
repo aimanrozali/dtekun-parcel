@@ -5,7 +5,7 @@ $("#swal-1").click(function () {
 });
 
 $("#swal-2").click(function () {
-  swal('Good Job', 'You clicked the button!', 'success');
+  swal('Status Updated', 'Parcel status changed successfully!', 'success');
 });
 
 $("#swal-3").click(function () {
