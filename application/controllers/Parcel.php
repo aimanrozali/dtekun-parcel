@@ -55,10 +55,10 @@ class Parcel extends CI_Controller
 	{
 		//get hidden values in variables
 		$tracking_number = $this->input->post('tracking_number');
-		$status = $this->input->post('parcel_status');
+		$parcel_status = $this->input->post('parcel_status');
 
 		//check condition
-		if ($status == '1') {
+		if ($parcel_status == '1') {
 			$parcel_status = '0';
 		} else {
 			$parcel_status = '1';
