@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn' => '',
-	'hostname' => 'localhost',
+	'hostname' => '35.202.232.189',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'SQEjszbz8nRB24',
 	'database' => 'dtekun-parcel',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
