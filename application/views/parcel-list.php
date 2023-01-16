@@ -48,7 +48,7 @@
                         <?php if ($data->parcel_status == '1') { ?>
 
                           <button type="button" data-toggle="modal" data-target="#basicModal"
-                            class="btn btn-success parcel_status" uid="<?php echo $data->parcel_id; ?>"
+                            class="btn btn-success parcel_status" uid="<?php echo $data->tracking_number; ?>"
                             ustatus="<?php echo $data->parcel_status; ?>">Claimed</button>
 
                         <?php } else { ?>
