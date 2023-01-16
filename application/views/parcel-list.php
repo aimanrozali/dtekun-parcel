@@ -104,8 +104,8 @@
         <div class="modal-body">
           Do you want to change the parcel status?
 
-          <input type="hidden" name="parcel_id" id="parcel_id" value="">
-          <input type="hidden" name="status" id="parcel_status" value="">
+          <input type="hidden" name="tracking_number" id="tracking_number" value="">
+          <input type="hidden" name="parcel_status" id="parcel_status" value="">
         </div>
         <div class="modal-footer bg-whitesmoke br">
           <button type="submit" id="swal-2" name="submit" class="btn btn-primary">Change</button>
