@@ -10,13 +10,14 @@ class ParcelModel extends CI_Model
 
     public function get_parcel()
     {
-        $query = $this->db->get('Parcel');
-        if ($query->num_rows() > 0) {
-            $result = $query->result_array();
-            return $result;
-        } else {
-            return false;
-        }
+        $query = $this->db->select('*')->from('Parcel')->get()->result();
+        // if ($query->num_rows() > 0) {
+        //     $result = $query->result_array();
+        //     return $result;
+        // } else {
+        //     return false;
+        // }
+        return $query;
     }
 
     public function save($capsule)
