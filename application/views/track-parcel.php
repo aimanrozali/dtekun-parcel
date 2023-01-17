@@ -22,23 +22,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <?php
+              foreach ($data as $data) {
+                ?>
+                <tr>
 
-                <td class="text-center"> ABC123</td>
-                <td class="text-center">
-                  Amirul Irfan
-                </td>
-                <td class="text-center">
-                  JNT
-                </td>
-                <td class="text-center">2018-01-20</td>
-                <td class="text-center">
-                  <div class="badge badge-success badge-shadow">Claimed</div>
-                </td>
+                  <td class="text-center"><?php echo $data->tagID; ?></td>
+                  <td class="text-center">
+                    <?php echo $data->parcel_name; ?>
+                  </td>
+                  <td class="text-center">
+                    <?php echo $data->parcel_courier; ?>
+                  </td>
+                  <td class="text-center">
+                    <?php echo $data->date_arrived; ?>
+                  </td>
+                  <td class="text-center">
+                    <?php if ($data->parcel_status = '1') { ?>
+                      <div class="badge badge-success badge-shadow">Claimed</div>
+                    <?php } else { ?>
+                      <div class="badge badge-warning badge-shadow">Arrived</div>
+                    <?php } ?>
+                  </td>
 
-              </tr>
+                </tr>
 
-              <tr>
+              <?php } ?>
+
+              <!-- <tr>
 
                 <td class="text-center"> ABC124</td>
                 <td class="text-center">
@@ -84,7 +95,7 @@
                   <div class="badge badge-success badge-shadow">Claimed</div>
                 </td>
 
-              </tr>
+              </tr> -->
 
 
             </tbody>
@@ -95,5 +106,4 @@
   </div>
   </div>
   </div>
-
 </section>
