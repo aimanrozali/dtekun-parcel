@@ -23,7 +23,7 @@
             </thead>
             <tbody>
               <?php
-              foreach ($data['parcel'] as $data) {
+              foreach ($data as $data) {
                 ?>
                 <tr>
 
