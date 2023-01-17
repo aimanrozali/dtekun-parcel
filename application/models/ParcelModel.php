@@ -10,7 +10,7 @@ class ParcelModel extends CI_Model
 
     public function get_parcel()
     {
-        $query = $this->db->select('*')->from('Parcel')->get()->result();
+        $query = $this->db->select('*')->from('Parcel')->get();
         // if ($query->num_rows() > 0) {
         //     $result = $query->result_array();
         //     return $result;
