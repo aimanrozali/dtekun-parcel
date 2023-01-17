@@ -79,9 +79,11 @@ class Parcel extends CI_Controller
 
 	public function trackParcel()
 	{
-		$data = $this->data;
+		//$data = $this->data;
 
-		$data['parcel'] = $this->parcelmodel->get_parcel();
+		$data = $this->db->select('*')->from('Parcel');
+
+		//$data['parcel'] = $this->parcelmodel->get_parcel();
 		$this->template->content->view('track-parcel', $data);
 
 		// Publish the template
