@@ -38,7 +38,7 @@
                     <?php echo $data->date_arrived; ?>
                   </td>
                   <td class="text-center">
-                    <?php if ($data->parcel_status = '1') { ?>
+                    <?php if ($data->parcel_status == '1') { ?>
                       <div class="badge badge-success badge-shadow">Claimed</div>
                     <?php } else { ?>
                       <div class="badge badge-warning badge-shadow">Arrived</div>
