@@ -81,10 +81,10 @@ class Parcel extends CI_Controller
 	{
 		//$data = $this->data;
 
-		$data = $this->db->select('*')->from('Parcel');
+		$data = $this->db->select('*')->from('Parcel')->get()->result();
 
 		//$data['parcel'] = $this->parcelmodel->get_parcel();
-		$this->template->content->view('track-parcel', $data);
+		$this->template->content->view('track-parcel', ['data' => $data]);
 
 		// Publish the template
 		$this->template->publish();
