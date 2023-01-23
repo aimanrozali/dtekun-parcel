@@ -12,9 +12,8 @@ class FinanceModel extends CI_Model
   public function fetchAllFinance()
   {
     //Queries here
-    $this->db->select('*');
-    $this->db->from('Finance');
-    return $this->db->get();
+    $query = $this->db->get('Finance');
+    return $query->result();
 
   }
 

@@ -29,10 +29,9 @@ class Finance extends CI_Controller
 
 	public function financialHistory()
 	{
-		$data = $this->data;
 
-		$data['financehist'] = $this->financemodel->fetchAllFinance();
-		$this->template->content->view('financial-history', ['financehist' => $data['financehist']]);
+		$data['financehist'] = $this->FinanceModel->fetchAllFinance();
+		$this->template->content->view('financial-history', $data);
 
 		// Publish the template
 		$this->template->publish();

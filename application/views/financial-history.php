@@ -19,57 +19,44 @@
                                         <th class="text-center"> Online Transaction (RM)</th>
                                         <th class="text-center"> Cash Transaction (RM)</th>
                                         <th class="text-center"> Revenue (RM)</th>
+                                        <th class="text-center"> Date</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td class="text-center">Aiman</td>
-                                        <td class="text-center">1.59</td>
-                                        <td class="text-center">1.59</td>
-                                        <td class="text-center">1.59</td>
-                                        <td class="text-center">1.59</td>
+                                    <?php $i = 1;
+                                    foreach ($financehist as $row) { ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $i++; ?>
+                                            </td>
+                                            <!-- PIC Closing -->
+                                            <td class="text-center">
+                                                <?php echo $row->closing_manager; ?>
+                                            </td>
+                                            <!-- Total Sales -->
+                                            <td class="text-center">
+                                                <?php echo $row->total_sales; ?>
+                                            </td>
+                                            <!-- Total Online -->
+                                            <td class="text-center">
+                                                <?php echo $row->total_online; ?>
+                                            </td>
+                                            <!-- Total Cash -->
+                                            <td class="text-center">
+                                                <?php echo $row->total_cash; ?>
+                                            </td>
+                                            <!-- Total Revenue -->
+                                            <td class="text-center">
+                                                <?php echo $row->total_revenue; ?>
+                                            </td>
+                                            <!-- Date Closing -->
+                                            <td class="text-center">
+                                                <?php echo $row->closing_date; ?>
+                                            </td>
 
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            2
-                                        </td>
-                                        <td class="text-center">Aiman</td>
-                                        <td class="text-center">4.50</td>
-                                        <td class="text-center">4.50</td>
-                                        <td class="text-center">4.50</td>
-                                        <td class="text-center">4.50</td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            3
-                                        </td>
-                                        <td class="text-center">Irfan</td>
-                                        <td class="text-center">3.22</td>
-                                        <td class="text-center">3.22</td>
-                                        <td class="text-center">3.22</td>
-                                        <td class="text-center">3.22</td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            4
-                                        </td>
-                                        <td class="text-center">Irfan</td>
-                                        <td class="text-center">8.22</td>
-                                        <td class="text-center">8.22</td>
-                                        <td class="text-center">8.22</td>
-                                        <td class="text-center">8.22</td>
-
-                                    </tr>
+                                        </tr>
+                                    <?php } ?>
 
                                 </tbody>
                             </table>
