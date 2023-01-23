@@ -74,12 +74,15 @@
         <table class="m-auto">
           <thead>
             <tr>
-              <th class="text-center"> Parcel cannot be found </th>
+              <?php if ($empty == 2) { ?>
+                <th class="text-center"></th>
+              <?php } else { ?>
+                <th class="text-center"> Parcel cannot be found </th>
+              <?php } ?>
             </tr>
           </thead>
         </table>
       <?php } ?>
-
       </div>
     </div>
   </div>
