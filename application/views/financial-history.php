@@ -84,30 +84,30 @@
 
 <script>
 
-    $(document).ready(function () {
+    $('.confirm-delete').click(function (e) {
 
-        $('.confirm-delete').click(function (e) {
+        e.preventDefault();
 
-            e.preventDefault();
+        var closingID = $(this).attr('value');
+        confirmDialog = confirm("Are you sure you want to delete this data?");
 
-            var closingID = $(this).attr('value');
-            confirmDialog = confirm("Are you sure you want to delete this data?");
-
-            if (confirmDialog) {
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url("Finance/delete/"); ?>" + closingID,
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.status == true) {
-                            alert("Data deleted successfully");
-                            location.reload();
-                        } else {
-                            alert("Error deleting data");
-                        }
+        if (confirmDialog) {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url("Finance/delete/"); ?>" + closingID,
+                dataType: "json",
+                success: function (response) {
+                    if (response.status == true) {
+                        alert("Data deleted successfully");
+                        location.reload();
+                    } else {
+                        alert("Error deleting data");
                     }
-                });
-            }
-        });
+                }
+            });
+        }
+    });
+    $(document).ready(function () {
+        $('#table-1').DataTable();
     });
 </script>
