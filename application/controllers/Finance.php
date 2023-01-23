@@ -23,8 +23,9 @@ class Finance extends CI_Controller
 	public function submitClosing()
 	{
 		$financeDet = $this->input->post();
-		$this->FinanceModel->saveFinance($financeDet);
-		//redirect(recordFinance());
+		if ($this->FinanceModel->saveFinance($financeDet)) {
+			redirect('Finance/financialHistory');
+		}
 	}
 
 	public function financialHistory()
