@@ -35,6 +35,17 @@ class ParcelModel extends CI_Model
         return $this->db->delete('Parcel', ['tracking_number' => $trackingNo]);
     }
 
+    public function searchParcelbyTrackingNum($trackingNum)
+    {
+       $this->db->select('*');
+       $this->db->from('Parcel');
+       $this->db->where('tracking_number', $trackingNum);
+       $query = $this->db->get();
+
+       return $query;
+    }
+
+
 }
 
 ?>
