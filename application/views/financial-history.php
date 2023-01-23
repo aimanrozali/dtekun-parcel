@@ -1,3 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
 <section class="section">
     <div class="section-body">
         <div class="row">
@@ -20,6 +23,7 @@
                                         <th class="text-center"> Cash Transaction (RM)</th>
                                         <th class="text-center"> Revenue (RM)</th>
                                         <th class="text-center"> Date</th>
+                                        <th class="text-center"> Action</th>
 
                                     </tr>
                                 </thead>
@@ -54,6 +58,16 @@
                                             <td class="text-center">
                                                 <?php echo $row->closing_date; ?>
                                             </td>
+                                            <td class="text-center">
+
+                                                <button type="button" class="btn btn-danger btn-sm confirm-delete"
+                                                    value="<?php echo $row->closing_ID ?>">
+                                                    <i class="fa fa-trash"></i></button>
+
+                                                <button type="button" class="btn btn-primary btn-sm"><i
+                                                        class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
 
                                         </tr>
                                     <?php } ?>
@@ -67,3 +81,33 @@
         </div>
     </div>
 </section>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.confirm-delete').click(function (e) {
+
+            e.preventDefault();
+
+            var closingID = $(this).attr('value');
+            confirmDialog = confirm("Are you sure you want to delete this data?");
+
+            if (confirmDialog) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url("Finance/delete/"); ?>" + closingID,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.status == true) {
+                            alert("Data deleted successfully");
+                            location.reload();
+                        } else {
+                            alert("Error deleting data");
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

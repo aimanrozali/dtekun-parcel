@@ -51,6 +51,10 @@ class FinanceModel extends CI_Model
       return "Failed to Insert Closing Details";
     }
   }
+  public function deleteFinance($closingID)
+  {
+    return $this->db->delete('Finance', ['closing_ID' => $closingID]);
+  }
 }
 
 ?>
