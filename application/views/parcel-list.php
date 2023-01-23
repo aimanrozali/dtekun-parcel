@@ -56,13 +56,13 @@
                       </td>
                       <td class="text-center">
 
-                      <button type="button" class = "btn btn-danger btn-sm confirm-delete" value="<?= $data->trackingNum; ?>">
-                      <i class ="fa fa-trash"></i></button>
+                        <button type="button" class="btn btn-danger btn-sm confirm-delete" value="<?php echo $row->tracking_number ?>">
+                          <i class="fa fa-trash"></i></button>
 
-                      <button type="button" class = "btn btn-primary btn-sm"><i class ="fa fa-edit"></i></div>
+                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
                       </td>
                     </tr>
-                    
+
                   <?php $i++;
                   } ?>
 
@@ -117,33 +117,30 @@
 </div>
 
 <script>
+  $(document).ready(function() {
 
-  $(document).ready(function (){
-
-    $('.confirm-delete').click(function (e) {
+    $('.confirm-delete').click(function(e) {
 
       e.preventDefault();
 
       var trackingNum = $(this).val();
       confirmDialog = confirm("Are you sure you want to delete this data?");
 
-      if(confirmDialog)
-      {
+      if (confirmDialog) {
         $.ajax({
-            type: "POST",
-            url: "<?php echo base_url("Parcel/delete/");?>" + trackingNum,
-            dataType: "json",
-            success: function (response) {
-                if(response.status == true){
-                    alert("Data deleted successfully");
-                    location.reload();
-                }else{
-                    alert("Error deleting data");
-                }
+          type: "POST",
+          url: "<?php echo base_url("Parcel/delete/"); ?>" + trackingNum,
+          dataType: "json",
+          success: function(response) {
+            if (response.status == true) {
+              alert("Data deleted successfully");
+              location.reload();
+            } else {
+              alert("Error deleting data");
             }
+          }
         });
       }
     });
   });
-
 </script>

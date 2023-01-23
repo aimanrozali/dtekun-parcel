@@ -32,7 +32,7 @@ class ParcelModel extends CI_Model
 
     public function deleteParcel($trackingNo)
     {
-        return $this->db->delete('parcel', ['trackingNum' => $trackingNo]);
+        return $this->db->delete('Parcel', ['tracking_number' => $trackingNo]);
     }
 
 }
