@@ -12,10 +12,14 @@ class Parcel extends CI_Controller
 
 	}
 
-	public function index()
+	public function parcelList()
 	{
-		$data = $this->db->select('*')->from('Parcel')->order_by('tracking_number', 'asc')->get()->result(); //here i'm fetching the data form the table
-		$this->template->content->view('parcel-list', ['data' => $data]);
+		// retrieve data from model
+		$data['parcelList'] = $this->ParcelModel->get_parcel();
+
+		// load data to view
+		$this->template->content->view('parcel-list', $data);
+		
 		// Publish the template
 		$this->template->publish();
 	}
@@ -47,7 +51,10 @@ class Parcel extends CI_Controller
 
 		$capsule = array('tagID' => $taggingNum, 'tracking_number' => $trackingNo, 'parcel_name' => $cust, 'parcel_phone' => $phone, 'parcel_courier' => $cour, 'parcel_size' => $size, 'price' => $price);
 
-		$this->ParcelModel->save($capsule);
+		
+		if($this->ParcelModel->save($capsule)){
+			redirect('Parcel/recordParcel');
+		}
 
 	}
 
@@ -70,11 +77,9 @@ class Parcel extends CI_Controller
 
 		$dateClaimed = date("d/m/Y");
 
-		$this->db->where('tracking_number', $tracking_number);
-		$this->db->update('Parcel', $data); //Update status here
-		$this->db->update('Parcel', array('date_claimed' => $dateClaimed));
+		$this->ParcelModel->changeStatus($tracking_number, $data,$dateClaimed);
 
-		return redirect('parcel');
+		return redirect('Parcel/parcelList');
 	}
 
 	public function trackParcel()

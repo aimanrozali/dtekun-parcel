@@ -9,25 +9,25 @@
       <div class="form-group row">
           <label for="inputTagNum" class="col-sm-3 col-form-label">Tagging Number</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputTagNum" name= "parcelTag" placeholder="e.g. B3581">
+            <input type="text" class="form-control" id="inputTagNum" name= "parcelTag" placeholder="e.g. B3581" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputTrackNum" class="col-sm-3 col-form-label">Tracking Number</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputTrackNum" name= "trackingNum" placeholder="Enter tracking number">
+            <input type="text" class="form-control" id="inputTrackNum" name= "trackingNum" placeholder="Enter tracking number" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputCust" class="col-sm-3 col-form-label">Name</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputCust" name= "custName" placeholder="Enter Customer Name">
+            <input type="text" class="form-control" id="inputCust" name= "custName" placeholder="Enter Customer Name" required>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputPhone" name= "phoneNum" placeholder="Enter phone number">
+            <input type="text" class="form-control" id="inputPhone" name= "phoneNum" placeholder="Enter phone number" required>
           </div>
         </div>
         <fieldset class="form-group">
@@ -35,7 +35,7 @@
             <div class="col-form-label col-sm-3 pt-0">Courier</div>
             <div class="col-sm-9">
               <div class="form-group">
-                <select class="form-control" name= courier>
+                <select class="form-control" name= courier required>
                   <option>Choose courier</option>
                   <option>J&T Express</option>
                   <option>Shopee Express</option>
@@ -50,7 +50,7 @@
           <div class="col-sm-9">
             <div class="form-group" name = "size" >
               <div class="form-check form-check-inline" >
-                <input class="form-check-input" type="radio" id="small" value="S" name="size">
+                <input class="form-check-input" type="radio" id="small" value="S" name="size" required>
                 <label class="form-check-label" for="small">Small</label>
               </div>
               <div class="form-check form-check-inline">

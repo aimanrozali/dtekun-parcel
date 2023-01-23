@@ -27,44 +27,33 @@
                 <tbody>
                   <?php
                   $i = 1;
-                  foreach ($data as $data) {
-                    ?>
+                  foreach ($parcelList as $row) {
+                  ?>
                     <tr>
                       <td class="text-center"><?php echo $i; ?></td>
                       <td class="text-center">
-                        <?php echo $data->tracking_number; ?>
+                        <?php echo $row->tracking_number; ?>
                       </td>
-                      <td class="text-center"><?php echo $data->parcel_name; ?></td>
+                      <td class="text-center"><?php echo $row->parcel_name; ?></td>
                       <td class="text-center">
-                        <?php echo $data->parcel_courier; ?>
-                      </td>
-                      <td class="text-center">
-                        <?php echo $data->parcel_size; ?>
+                        <?php echo $row->parcel_courier; ?>
                       </td>
                       <td class="text-center">
-                        <?php echo $data->date_arrived; ?>
+                        <?php echo $row->parcel_size; ?>
                       </td>
                       <td class="text-center">
-                        <?php if ($data->parcel_status == '1') { ?>
-
-                          <button type="button" data-toggle="modal" data-target="#basicModal"
-                            class="btn btn-success parcel_status" uid="<?php echo $data->tracking_number; ?>"
-                            ustatus="<?php echo $data->parcel_status; ?>">Claimed</button>
-
+                        <?php echo $row->date_arrived; ?>
+                      </td>
+                      <td class="text-center">
+                        <?php if ($row->parcel_status == '1') { ?>
+                          <button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-success parcel_status" uid="<?php echo $row->tracking_number; ?>" ustatus="<?php echo $row->parcel_status; ?>">Claimed</button>
                         <?php } else { ?>
-
-                          <button type="button" data-toggle="modal" data-target="#basicModal"
-                            class="btn btn-warning parcel_status" uid="<?php echo $data->tracking_number; ?>"
-                            ustatus="<?php echo $data->parcel_status; ?>">Arrived</button>
-
+                          <button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-warning parcel_status" uid="<?php echo $row->tracking_number; ?>" ustatus="<?php echo $row->parcel_status; ?>">Arrived</button>
                         <?php } ?>
-
-
                       </td>
                     </tr>
-
-
-                    <?php $i++;
+                    
+                  <?php $i++;
                   } ?>
 
                 </tbody>
@@ -78,20 +67,19 @@
 </section>
 
 <script type="text/javascript">
-  $(document).on('click', '.parcel_status', function () {
+  $(document).on('click', '.parcel_status', function() {
 
     var tracking_number = $(this).attr('uid'); //get attribute value in variable
     var parcel_status = $(this).attr('ustatus'); //get attribute value in variable
 
     $('#tracking_number').val(tracking_number); //pass attribute value in ID
-    $('#parcel_status').val(parcel_status);  //pass attribute value in ID
+    $('#parcel_status').val(parcel_status); //pass attribute value in ID
 
   });
 </script>
 
 <form action="<?php echo base_url(); ?>Parcel/change_status" method="post">
-  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
