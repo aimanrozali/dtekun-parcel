@@ -94,4 +94,25 @@ class Parcel extends CI_Controller
 		// Publish the template
 		$this->template->publish();
 	}
+
+	public function delete($trackingNo)
+	{
+
+		$this->load->model('ParcelModel');
+		$this->ParcelModel->deleteParcel($trackingNo);
+
+		if ($this->db->affected_rows() > 0) {
+			$response = array(
+				'status' => true,
+				'message' => 'Data deleted successfully'
+			);
+		} else {
+			$response = array(
+				'status' => false,
+				'message' => 'Error deleting data'
+			);
+		}
+		echo json_encode($response);
+	}
+
 }

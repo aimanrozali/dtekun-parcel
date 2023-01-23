@@ -30,6 +30,11 @@ class ParcelModel extends CI_Model
 		$this->db->update('Parcel', array('date_claimed' => $dateClaimed));
     }
 
+    public function deleteParcel($trackingNo)
+    {
+        return $this->db->delete('parcel', ['trackingNum' => $trackingNo]);
+    }
+
 }
 
 ?>

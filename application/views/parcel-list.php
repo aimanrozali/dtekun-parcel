@@ -1,4 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
 <section class="section">
   <div class="section-body">
     <div class="row">
@@ -21,6 +23,7 @@
                     <th class="text-center"> Size</th>
                     <th class="text-center"> Date Arrived</th>
                     <th class="text-center"> Status</th>
+                    <th class="text-center"> Actions</th>
 
                   </tr>
                 </thead>
@@ -50,6 +53,13 @@
                         <?php } else { ?>
                           <button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-warning parcel_status" uid="<?php echo $row->tracking_number; ?>" ustatus="<?php echo $row->parcel_status; ?>">Arrived</button>
                         <?php } ?>
+                      </td>
+                      <td class="text-center">
+
+                      <button type="button" class = "btn btn-danger btn-sm confirm-delete" value="<?= $data->trackingNum; ?>">
+                      <i class ="fa fa-trash"></i></button>
+
+                      <button type="button" class = "btn btn-primary btn-sm"><i class ="fa fa-edit"></i></div>
                       </td>
                     </tr>
                     
@@ -105,3 +115,35 @@
 
 </div>
 </div>
+
+<script>
+
+  $(document).ready(function (){
+
+    $('.confirm-delete').click(function (e) {
+
+      e.preventDefault();
+
+      var trackingNum = $(this).val();
+      confirmDialog = confirm("Are you sure you want to delete this data?");
+
+      if(confirmDialog)
+      {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url("Parcel/delete/");?>" + trackingNum,
+            dataType: "json",
+            success: function (response) {
+                if(response.status == true){
+                    alert("Data deleted successfully");
+                    location.reload();
+                }else{
+                    alert("Error deleting data");
+                }
+            }
+        });
+      }
+    });
+  });
+
+</script>
