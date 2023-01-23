@@ -8,8 +8,12 @@
         Please enter your tracking number to see your parcel status.
       </div>
     </div>
+
+
     <div class="card">
       <div class="card-body">
+
+
         <div class="table-responsive">
           <table class="table table-striped" id="table-1">
             <thead>

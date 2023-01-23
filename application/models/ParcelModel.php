@@ -10,14 +10,8 @@ class ParcelModel extends CI_Model
 
     public function get_parcel()
     {
-        $query = $this->db->select('*')->from('Parcel')->get();
-        // if ($query->num_rows() > 0) {
-        //     $result = $query->result_array();
-        //     return $result;
-        // } else {
-        //     return false;
-        // }
-        return $query;
+        $query = $this->db->get('Parcel');
+        return $query->result();
     }
 
     public function save($capsule)
@@ -29,6 +23,17 @@ class ParcelModel extends CI_Model
         }
     }
 
+    public function changeStatus($tracking_number, $data, $dateClaimed)
+    {
+		$this->db->where('tracking_number', $tracking_number);
+		$this->db->update('Parcel', $data);  //Update status here
+		$this->db->update('Parcel', array('date_claimed' => $dateClaimed));
+    }
+
+    public function deleteParcel($trackingNo)
+    {
+        return $this->db->delete('Parcel', ['tracking_number' => $trackingNo]);
+    }
 
 }
 

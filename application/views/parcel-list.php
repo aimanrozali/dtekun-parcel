@@ -1,4 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
 <section class="section">
   <div class="section-body">
     <div class="row">
@@ -21,50 +23,47 @@
                     <th class="text-center"> Size</th>
                     <th class="text-center"> Date Arrived</th>
                     <th class="text-center"> Status</th>
+                    <th class="text-center"> Actions</th>
 
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   $i = 1;
-                  foreach ($data as $data) {
-                    ?>
+                  foreach ($parcelList as $row) {
+                  ?>
                     <tr>
                       <td class="text-center"><?php echo $i; ?></td>
                       <td class="text-center">
-                        <?php echo $data->tracking_number; ?>
+                        <?php echo $row->tracking_number; ?>
                       </td>
-                      <td class="text-center"><?php echo $data->parcel_name; ?></td>
+                      <td class="text-center"><?php echo $row->parcel_name; ?></td>
                       <td class="text-center">
-                        <?php echo $data->parcel_courier; ?>
-                      </td>
-                      <td class="text-center">
-                        <?php echo $data->parcel_size; ?>
+                        <?php echo $row->parcel_courier; ?>
                       </td>
                       <td class="text-center">
-                        <?php echo $data->date_arrived; ?>
+                        <?php echo $row->parcel_size; ?>
                       </td>
                       <td class="text-center">
-                        <?php if ($data->parcel_status == '1') { ?>
-
-                          <button type="button" data-toggle="modal" data-target="#basicModal"
-                            class="btn btn-success parcel_status" uid="<?php echo $data->tracking_number; ?>"
-                            ustatus="<?php echo $data->parcel_status; ?>">Claimed</button>
-
+                        <?php echo $row->date_arrived; ?>
+                      </td>
+                      <td class="text-center">
+                        <?php if ($row->parcel_status == '1') { ?>
+                          <button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-success parcel_status" uid="<?php echo $row->tracking_number; ?>" ustatus="<?php echo $row->parcel_status; ?>">Claimed</button>
                         <?php } else { ?>
-
-                          <button type="button" data-toggle="modal" data-target="#basicModal"
-                            class="btn btn-warning parcel_status" uid="<?php echo $data->tracking_number; ?>"
-                            ustatus="<?php echo $data->parcel_status; ?>">Arrived</button>
-
+                          <button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-warning parcel_status" uid="<?php echo $row->tracking_number; ?>" ustatus="<?php echo $row->parcel_status; ?>">Arrived</button>
                         <?php } ?>
+                      </td>
+                      <td class="text-center">
 
+                        <button type="button" class="btn btn-danger btn-sm confirm-delete" value="<?php echo $row->tracking_number ?>">
+                          <i class="fa fa-trash"></i></button>
 
+                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
                       </td>
                     </tr>
 
-
-                    <?php $i++;
+                  <?php $i++;
                   } ?>
 
                 </tbody>
@@ -78,20 +77,19 @@
 </section>
 
 <script type="text/javascript">
-  $(document).on('click', '.parcel_status', function () {
+  $(document).on('click', '.parcel_status', function() {
 
     var tracking_number = $(this).attr('uid'); //get attribute value in variable
     var parcel_status = $(this).attr('ustatus'); //get attribute value in variable
 
     $('#tracking_number').val(tracking_number); //pass attribute value in ID
-    $('#parcel_status').val(parcel_status);  //pass attribute value in ID
+    $('#parcel_status').val(parcel_status); //pass attribute value in ID
 
   });
 </script>
 
 <form action="<?php echo base_url(); ?>Parcel/change_status" method="post">
-  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -117,3 +115,32 @@
 
 </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+
+    $('.confirm-delete').click(function(e) {
+
+      e.preventDefault();
+
+      var trackingNum = $(this).val();
+      confirmDialog = confirm("Are you sure you want to delete this data?");
+
+      if (confirmDialog) {
+        $.ajax({
+          type: "POST",
+          url: "<?php echo base_url("Parcel/delete/"); ?>" + trackingNum,
+          dataType: "json",
+          success: function(response) {
+            if (response.status == true) {
+              alert("Data deleted successfully");
+              location.reload();
+            } else {
+              alert("Error deleting data");
+            }
+          }
+        });
+      }
+    });
+  });
+</script>
