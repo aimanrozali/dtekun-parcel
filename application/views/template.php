@@ -92,7 +92,8 @@
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="<?php echo base_url('Parcel/trackParcel'); ?>">Track
                                         Parcel</a></li>
-
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/register'); ?>">Register</a></li>
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/login'); ?>">Login</a></li>
                             </ul>
                         </li>
                     </ul>

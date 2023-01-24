@@ -15,6 +15,46 @@ class ParcelModel extends CI_Model
         return $query->result();
     }
 
+    
+    public function register_admin()
+    {
+        $password = $this->input->post('password');
+        $password2 = $this->input->post('password-confirm');
+
+        if ($password!=$password2){
+            $this->session->set_flashdata('wrong', 'The password not equal with confirmation!');
+            redirect('Parcel/register');
+            }else{
+            $data=array(
+            "f_name"=>$this->input->post ('f_name'),
+            "l_name"=>$this->input->post ('l_name'),
+            "email"=>$this->input->post ('email'),
+            "password"=>$password
+            );
+
+            $this->db->insert('admin',$data);
+            $this->session->set_flashdata('suc', 'You are registered. Please login');
+            redirect ('Parcel/login');
+
+    }}
+
+    public function login_admin(){
+        $email=$this->input->post('email');
+        $password=$this->input->post('password');
+        $this->db->where('email', $email);
+        $this->db->where('password',$password);
+        $query=$this->db->get('admin'); 
+        $find_admin=$query->num_rows($query);
+        
+        if($find_admin>0){
+        $this->session->set_flashdata('suc', "You are logged in");
+        redirect ('Dashboard/index');
+        }else{
+            $this->session->set_flashdata('warning','Incorrect Authentication!!!');
+        redirect ('Parcel/login');
+        }
+    }
+
     //save parcel record
     public function save($capsule)
     {
