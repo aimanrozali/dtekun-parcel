@@ -8,12 +8,14 @@ class ParcelModel extends CI_Model
         $this->load->database();
     }
 
+    //retrieve all parcel record
     public function get_parcel()
     {
         $query = $this->db->get('Parcel');
         return $query->result();
     }
 
+    //save parcel record
     public function save($capsule)
     {
         $insert = $this->db->insert('Parcel', $capsule);
@@ -23,6 +25,7 @@ class ParcelModel extends CI_Model
         }
     }
 
+    //verify/change parcel status
     public function changeStatus($tracking_number, $data, $dateClaimed)
     {
 		$this->db->where('tracking_number', $tracking_number);
@@ -30,11 +33,13 @@ class ParcelModel extends CI_Model
 		$this->db->update('Parcel', array('date_claimed' => $dateClaimed));
     }
 
+    //delete parcel from list and database
     public function deleteParcel($trackingNo)
     {
         return $this->db->delete('Parcel', ['tracking_number' => $trackingNo]);
     }
 
+    //parcel track and trace function
     public function searchParcelbyTrackingNum($trackingNum)
     {
        $this->db->select('*');
@@ -45,6 +50,7 @@ class ParcelModel extends CI_Model
        return $query;
     }
 
+    //update parcel in list and database
     public function update_data($tracking_number, $data) 
     {
         $this->db->where('tracking_number', $tracking_number);

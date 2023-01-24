@@ -29,8 +29,8 @@
                 </thead>
                 <tbody>
                   <?php
-                  $i = 1;
-                  foreach ($parcelList as $row) {
+                  $i = 1; 
+                  foreach ($parcelList as $row) { //retrieve parcel record from database and display in table
                   ?>
                     <tr>
                       <td class="text-center"><?php echo $i; ?></td>
@@ -47,7 +47,8 @@
                       <td class="text-center">
                         <?php echo $row->date_arrived; ?>
                       </td>
-                      <td class="text-center">
+                      <!--Display Button According to Status-->
+                      <td class="text-center"> 
                         <?php if ($row->parcel_status == '1') { ?>
                           <button type="button" data-toggle="modal" data-target="#basicModal" class="btn btn-success parcel_status" uid="<?php echo $row->tracking_number; ?>" ustatus="<?php echo $row->parcel_status; ?>">Claimed</button>
                         <?php } else { ?>
@@ -55,15 +56,15 @@
                         <?php } ?>
                       </td>
                       <td class="text-center">
-
+                      <!--Delete Button-->
                         <button type="button" class="btn btn-danger btn-sm confirm-delete" value="<?php echo $row->tracking_number ?>">
                           <i class="fa fa-trash"></i></button>
-
+                      <!--Edit Button-->
                         <button type="button" class="btn btn-primary btn-sm edit-btn" data-tagid="<?= $row->tagID;?>" data-tracknum="<?= $row->tracking_number;?>" data-name="<?= $row->parcel_name;?>" data-phone="<?= $row->parcel_phone;?>" data-courier="<?= $row->parcel_courier;?>" data-size="<?= $row->parcel_size;?>"><i class="fa fa-edit"></i></button>
                       </td>
                     </tr>
 
-                  <?php $i++;
+                  <?php $i++; //increment for each parcel data
                   } ?>
 
                 </tbody>
@@ -76,6 +77,7 @@
   </div>
 </section>
 
+<!--Get parcel status based on tracking number-->
 <script type="text/javascript">
   $(document).on('click', '.parcel_status', function() {
 
@@ -88,6 +90,7 @@
   });
 </script>
 
+<!-- Modal Verify Parcel Status-->
 <form action="<?php echo base_url(); ?>Parcel/change_status" method="post">
   <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -112,9 +115,9 @@
       </div>
 
 </form>
-
 </div>
 </div>
+<!-- End Modal Verify Parcel Status -->
 
 <script>
   $(document).ready(function() {

@@ -53,6 +53,7 @@ class Parcel extends CI_Controller
 
 		
 		if($this->ParcelModel->save($capsule)){
+			$this->session->set_flashdata('status','Parcel Recorded Successfully!');
 			redirect('Parcel/recordParcel');
 		}
 
