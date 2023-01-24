@@ -126,4 +126,44 @@ class Parcel extends CI_Controller
 		}
 		echo json_encode($response);
 	}
+
+	public function update() 
+	{
+        $tracking_number = $this->input->post('tracking_number');
+        $data = array(
+            'tagID' => $this->input->post('tagID'),
+            'tracking_number' => $this->input->post('tracking_number'),
+			'parcel_name' => $this->input->post('parcel_name'),
+			'parcel_phone' => $this->input->post('parcel_phone'),
+            'parcel_courier' => $this->input->post('parcel_courier'),
+            'parcel_size' => $this->input->post('parcel_size'),
+        );
+
+		$parcel_size = $this->input->post('parcel_size');
+		
+		if($parcel_size == 'S'){
+			$data['price'] = 0.5;
+		}else if($parcel_size == 'M'){
+			$data['price'] = 1;
+		}else if($parcel_size == 'L'){
+			$data['price'] = 2;
+		}else{
+			$data['price'] = 0;
+		}
+
+        $this->ParcelModel->update_data($tracking_number, $data);
+        
+		if ($this->db->affected_rows() > 0) {
+			$response = array(
+				'status' => true,
+				'message' => 'Data updated successfully'
+			);
+		} else {
+			$response = array(
+				'status' => false,
+				'message' => 'Error updating data'
+			);
+		}
+		echo json_encode($response);
+    }
 }

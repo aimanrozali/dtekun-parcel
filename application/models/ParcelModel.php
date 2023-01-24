@@ -45,6 +45,12 @@ class ParcelModel extends CI_Model
        return $query;
     }
 
+    public function update_data($tracking_number, $data) 
+    {
+        $this->db->where('tracking_number', $tracking_number);
+        $this->db->update('Parcel', $data);
+        return $this->db->affected_rows();
+    }
 
 }
 
