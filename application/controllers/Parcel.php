@@ -15,9 +15,7 @@ class Parcel extends CI_Controller
 
 	public function index()
 	{
-
 		//track parcel
-
 		$trackingNum = $this->input->get('trackingNum');
 
 		if($trackingNum){
