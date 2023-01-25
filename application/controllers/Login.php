@@ -19,6 +19,8 @@ class Login extends CI_Controller
 
     public function login_process()
     {
+
+        $this->load->library('session');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
@@ -30,7 +32,12 @@ class Login extends CI_Controller
 
             // Publish the template
             $this->template->publish();
-        } else {
+        } else{
+            $this->session->set_flashdata('error','Wrong username or password. Please try again.');
+            $this->template->content->view('login-page');
+
+            // Publish the template
+            $this->template->publish();
         }
     }
 

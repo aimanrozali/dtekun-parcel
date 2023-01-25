@@ -1,7 +1,7 @@
       <!--Success Alert when Data Inserted-->
-      <?php if ($this->session->flashdata('status')) : ?>
+      <?php if ($this->session->flashdata('error')) : ?>
         <div class="alert alert-danger">
-          <?= $this->session->flashdata('status'); ?>
+          <?= $this->session->flashdata('error'); ?>
         </div>
       <?php endif; ?>
 
