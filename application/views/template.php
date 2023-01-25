@@ -42,7 +42,7 @@
 /img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
                             <p class="text-center">Hello <?php echo $this->session->userdata('username'); ?> </p>
-                            <a href="<?php echo base_url('Login/login'); ?>" class="dropdown-item has-icon text-success"> <i class="fas fa-sign-in-alt"></i>
+                            <a href="<?php echo base_url('Login/login'); ?>" class="dropdown-item has-icon text-success" <?php if ($this->session->userdata('username') == 'admin') echo 'hidden' ?>> <i class="fas fa-sign-in-alt"></i>
                                 Admin Login
                             </a>
                             <a href="<?php echo base_url('Login/logout'); ?>" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
@@ -83,9 +83,9 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="users"></i><span>User</span></a>
+                            <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') == 'admin') echo 'hidden' ?>><i data-feather="users"></i><span>User</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Track
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?> ">Track
                                         Parcel</a></li>
 
                             </ul>
