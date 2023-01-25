@@ -11,7 +11,7 @@ class Parcel extends CI_Controller
 		$this->load->model('ParcelModel');
 
 	}
-
+	
 	public function parcelList()
 	{
 		// retrieve data from model
@@ -24,7 +24,7 @@ class Parcel extends CI_Controller
 		$this->template->publish();
 	}
 
-	public function register()
+	public function register() 
 	{
 		// load data to view
 		$this->template->content->view('register-page');
