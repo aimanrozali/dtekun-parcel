@@ -24,22 +24,6 @@ class Parcel extends CI_Controller
 		$this->template->publish();
 	}
 
-	public function register() 
-	{
-		// load data to view
-		$this->template->content->view('register-page');
-		
-		// Publish the template
-		$this->template->publish();
-	}
-
-	
-	public function registration_form()
-	{
-		// load data to view
-		$this->ParcelModel->register_admin();
-	}
-
 	public function login_form()
 	{
 		// load data to view
