@@ -1,4 +1,6 @@
 <section>
+
+
   <form class="section" method="post" action="<?=base_url()?>Parcel/data_insert"> 
   <div class="section-body">
 

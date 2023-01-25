@@ -11,6 +11,35 @@ class Parcel extends CI_Controller
 		$this->load->model('ParcelModel');
 
 	}
+
+
+	public function index()
+	{
+
+		//track parcel
+
+		$trackingNum = $this->input->get('trackingNum');
+
+		if($trackingNum){
+			$search = $this->ParcelModel->searchParcelbyTrackingNum($trackingNum)->result();
+			$empty = 0;
+			if(empty($search)){
+				$search = 1; // set to 1 when tracking number is not in the database
+				$empty = 0;  
+			}
+		}else{
+			$search = 1;
+			$empty = 2;
+		}
+
+		$data['search'] = $search;
+		$data['empty'] = $empty;
+
+		$this->template->content->view('track-parcel', $data);
+
+		// Publish the template
+		$this->template->publish();
+	}
 	
 	public function parcelList()
 	{
@@ -24,20 +53,6 @@ class Parcel extends CI_Controller
 		$this->template->publish();
 	}
 
-	public function login_form()
-	{
-		// load data to view
-		$this->ParcelModel->login_admin();
-	}
-
-	public function login()
-	{
-		// load data to view
-		$this->template->content->view('login-page');
-		
-		// Publish the template
-		$this->template->publish();
-	}
 
 	public function recordParcel()
 	{
@@ -98,30 +113,6 @@ class Parcel extends CI_Controller
 		return redirect('Parcel/parcelList');
 	}
 
-	public function trackParcel()
-	{
-		$trackingNum = $this->input->get('trackingNum');
-
-		if($trackingNum){
-			$search = $this->ParcelModel->searchParcelbyTrackingNum($trackingNum)->result();
-			$empty = 0;
-			if(empty($search)){
-				$search = 1; // set to 1 when tracking number is not in the database
-				$empty = 0;  
-			}
-		}else{
-			$search = 1;
-			$empty = 2;
-		}
-
-		$data['search'] = $search;
-		$data['empty'] = $empty;
-
-		$this->template->content->view('track-parcel', $data);
-
-		// Publish the template
-		$this->template->publish();
-	}
 
 	public function delete($trackingNo)
 	{
