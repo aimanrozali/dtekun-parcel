@@ -1,6 +1,6 @@
       <!--Success Alert when Data Inserted-->
       <?php if ($this->session->flashdata('error')) : ?>
-        <div class="alert alert-danger">
+        <div class="col-3 m-auto alert alert-danger">
           <?= $this->session->flashdata('error'); ?>
         </div>
       <?php endif; ?>
