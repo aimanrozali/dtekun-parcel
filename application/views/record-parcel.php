@@ -51,7 +51,7 @@
             <div class="col-sm-9">
               <div class="form-group">
                 <select class="form-control" name= courier required>
-                  <option>Choose courier</option>
+                  <option selected disabled>Choose courier</option>
                   <option>J&T Express</option>
                   <option>Shopee Express</option>
                   <option>DHL</option>
