@@ -15,7 +15,7 @@ class ParcelModel extends CI_Model
         return $query->result();
     }
 
-     //save parcel record
+    //save parcel record
     public function save($capsule)
     {
         $insert = $this->db->insert('Parcel', $capsule);
