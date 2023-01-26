@@ -26,18 +26,13 @@ class Finance extends CI_Controller
 		$financeDet = $this->input->post();
 
 
-		if ($this->FinanceModel->saveFinance($financeDet)) {
-			$response = array(
-				'status' => true,
-				'message' => 'Data deleted successfully'
-			);
-		} else {
-			$response = array(
-				'status' => false,
-				'message' => 'Error deleting data'
-			);
+		if ($this->FinanceModel->saveFinance($financeDet) != $this->db->error()) {
+			$this->session->set_flashdata('status', 'Closing Details Recorded Successfully!');
+			redirect('Finance/recordFinance');
+		} elseif ($this->FinanceModel->saveFinance($financeDet) == $this->db->error()) {
+			$this->session->set_flashdata('error', 'Closing Details for selected date already exist!');
+			redirect('Finance/recordFinance');
 		}
-		echo json_encode($response);
 
 	}
 

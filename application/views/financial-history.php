@@ -63,6 +63,7 @@
 
                                                 <button type="button" class="btn btn-primary btn-sm edit-btn"
                                                     data-cID="<?= $row->closing_ID; ?>"
+                                                    data-tCash="<?= $row->total_cash; ?>"
                                                     data-cManager="<?= $row->closing_manager; ?>"
                                                     data-tOnline="<?= $row->total_online; ?>"
                                                     data-cDate="<?= $row->closing_date; ?>"><i
@@ -136,18 +137,18 @@
                     <div class="form-group">
                         <label>Closing Manager</label>
                         <input type="text" class="form-control closingManager" name="closingManager"
-                            placeholder="Closing Manager" disabled>
+                            placeholder="Closing Manager" required>
                     </div>
 
                     <div class="form-group">
                         <label>Total Online Transaction</label>
-                        <input type="text" class="form-control totalOnline" name="total_online"
+                        <input type="text" class="form-control totalOnline" name="totalOnline"
                             placeholder="Total Online Transaction" required>
                     </div>
 
                     <div class="form-group">
                         <label>Total Cash</label>
-                        <input type="text" class="form-control totalCash" name="total_cash" placeholder="Total Cash"
+                        <input type="text" class="form-control totalCash" name="totalCash" placeholder="Total Cash"
                             required>
                     </div>
 
@@ -169,11 +170,11 @@
         // get Edit Finance
         $('.edit-btn').on('click', function () {
             // get data from button edit
-            const closingDate = $(this).data('cDate');
-            const closingManager = $(this).data('cManager');
-            const totalOnline = $(this).data('tOnline');
-            const totalCash = $(this).data('tCash');
-            const closingID = $(this).data('cID');
+            const closingID = $(this).attr('data-cID');
+            const totalCash = $(this).attr('data-tCash');
+            const closingManager = $(this).attr('data-cManager');
+            const totalOnline = $(this).attr('data-tOnline');
+            const closingDate = $(this).attr('data-cDate');
 
             console.log(closingID);
 
@@ -182,7 +183,7 @@
             $('.closingManager').val(closingManager);
             $('.totalOnline').val(totalOnline);
             $('.totalCash').val(totalCash);
-            $('#closing_ID').val(closingID);
+            $('.closingID').val(closingID);
             // Call Modal Edit
             $('#editModal').modal('show');
         });
