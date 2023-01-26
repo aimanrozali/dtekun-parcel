@@ -246,7 +246,6 @@
     <!-- JS Libraies -->
     <script src="<?php echo base_url(); ?>/assets/bundles/chartjs/chart.min.js"></script>
     <!-- Page Specific JS File -->
-    <script src="<?php echo base_url(); ?>/assets/js/page/chart-chartjs.js"></script>
 
 
 
