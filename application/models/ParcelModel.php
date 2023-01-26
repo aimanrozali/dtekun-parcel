@@ -18,11 +18,12 @@ class ParcelModel extends CI_Model
     //save parcel record
     public function save($capsule)
     {
-        $insert = $this->db->insert('Parcel', $capsule);
-
-        if ($insert) {
-            return $msg = ("Data Inserted Successfully");
+        //$insert = $this->db->insert('Parcel', $capsule);
+        if(!$this->db->insert('Parcel', $capsule))
+        {
+            return $this->db->error();
         }
+
     }
 
     //verify/change parcel status
@@ -59,5 +60,3 @@ class ParcelModel extends CI_Model
     }
 
 }
-
-?>

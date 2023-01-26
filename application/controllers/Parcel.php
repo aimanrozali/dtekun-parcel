@@ -9,7 +9,6 @@ class Parcel extends CI_Controller
 		$this->load->helper('url');
 		$this->load->database();
 		$this->load->model('ParcelModel');
-
 	}
 
 	//track and trace parcel function
@@ -18,14 +17,14 @@ class Parcel extends CI_Controller
 		//track parcel
 		$trackingNum = $this->input->get('trackingNum');
 
-		if($trackingNum){
+		if ($trackingNum) {
 			$search = $this->ParcelModel->searchParcelbyTrackingNum($trackingNum)->result();
 			$empty = 0;
-			if(empty($search)){
+			if (empty($search)) {
 				$search = 1; // set to 1 when tracking number is not in the database
-				$empty = 0;  
+				$empty = 0;
 			}
-		}else{
+		} else {
 			$search = 1;
 			$empty = 2;
 		}
@@ -38,7 +37,7 @@ class Parcel extends CI_Controller
 		// Publish the template
 		$this->template->publish();
 	}
-	
+
 	//display list of parcels
 	public function parcelList()
 	{
@@ -47,7 +46,7 @@ class Parcel extends CI_Controller
 
 		// load data to view
 		$this->template->content->view('parcel-list', $data);
-		
+
 		// Publish the template
 		$this->template->publish();
 	}
@@ -82,11 +81,14 @@ class Parcel extends CI_Controller
 		$capsule = array('tagID' => $taggingNum, 'tracking_number' => $trackingNo, 'parcel_name' => $cust, 'parcel_phone' => $phone, 'parcel_courier' => $cour, 'parcel_size' => $size, 'price' => $price);
 
 		//display success message if saved
-		if($this->ParcelModel->save($capsule)){
-			$this->session->set_flashdata('status','Parcel Recorded Successfully!');
+		if ($this->ParcelModel->save($capsule)!= $this->db->error()) {
+			$this->session->set_flashdata('status', 'Parcel Recorded Successfully!');
 			redirect('Parcel/recordParcel');
-		}
-
+		} elseif($this->ParcelModel->save($capsule) == $this->db->error()) {
+				$this->session->set_flashdata('error', 'Tracking Number Already Exist!');
+				redirect('Parcel/recordParcel');
+			}
+		
 	}
 
 	//verify status of parcel
@@ -109,7 +111,7 @@ class Parcel extends CI_Controller
 
 		$dateClaimed = date("d/m/Y");
 
-		$this->ParcelModel->changeStatus($tracking_number, $data,$dateClaimed);
+		$this->ParcelModel->changeStatus($tracking_number, $data, $dateClaimed);
 
 		return redirect('Parcel/parcelList');
 	}
@@ -136,32 +138,32 @@ class Parcel extends CI_Controller
 	}
 
 	//update/edit parcel details from list
-	public function update() 
+	public function update()
 	{
-        $tracking_number = $this->input->post('tracking_number');
-        $data = array(
-            'tagID' => $this->input->post('tagID'),
-            'tracking_number' => $this->input->post('tracking_number'),
+		$tracking_number = $this->input->post('tracking_number');
+		$data = array(
+			'tagID' => $this->input->post('tagID'),
+			'tracking_number' => $this->input->post('tracking_number'),
 			'parcel_name' => $this->input->post('parcel_name'),
 			'parcel_phone' => $this->input->post('parcel_phone'),
-            'parcel_courier' => $this->input->post('parcel_courier'),
-            'parcel_size' => $this->input->post('parcel_size'),
-        );
+			'parcel_courier' => $this->input->post('parcel_courier'),
+			'parcel_size' => $this->input->post('parcel_size'),
+		);
 
 		$parcel_size = $this->input->post('parcel_size');
-		
-		if($parcel_size == 'S'){
+
+		if ($parcel_size == 'S') {
 			$data['price'] = 0.5;
-		}else if($parcel_size == 'M'){
+		} else if ($parcel_size == 'M') {
 			$data['price'] = 1;
-		}else if($parcel_size == 'L'){
+		} else if ($parcel_size == 'L') {
 			$data['price'] = 2;
-		}else{
+		} else {
 			$data['price'] = 0;
 		}
 
-        $this->ParcelModel->update_data($tracking_number, $data);
-        
+		$this->ParcelModel->update_data($tracking_number, $data);
+
 		//display message
 		if ($this->db->affected_rows() > 0) {
 			$response = array(
@@ -175,5 +177,5 @@ class Parcel extends CI_Controller
 			);
 		}
 		echo json_encode($response);
-    }
+	}
 }
