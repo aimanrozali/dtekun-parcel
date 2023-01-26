@@ -11,7 +11,8 @@
     <!-- General CSS Files -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/app.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/components.css">
@@ -38,14 +39,21 @@
                     </ul>
                 </div>
                 <ul class="navbar-nav navbar-right">
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url(); ?>/assets
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url(); ?>/assets
 /img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
-                            <p class="text-center">Hello <?php echo $this->session->userdata('username'); ?> </p>
-                            <a href="<?php echo base_url('Login/login'); ?>" class="dropdown-item has-icon text-success" <?php if ($this->session->userdata('username') == 'admin') echo 'hidden' ?>> <i class="fas fa-sign-in-alt"></i>
-                                Admin Login
-                            </a>
-                            <a href="<?php echo base_url('Login/logout'); ?>" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                            <p class="text-center">Hello
+                                <?php echo $this->session->userdata('username'); ?>
+                            </p>
+                            <a href="<?php echo base_url('Login/login'); ?>" class="dropdown-item has-icon text-success"
+                                <?php if ($this->session->userdata('username') == 'admin')
+                                    echo 'hidden' ?>> <i
+                                        class="fas fa-sign-in-alt"></i>
+                                    Admin Login
+                                </a>
+                                <a href="<?php echo base_url('Login/logout'); ?>"
+                                class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
                         </div>
@@ -62,30 +70,40 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Main</li>
                         <li class="dropdown">
-                            <a href="<?php echo base_url('Dashboard/index'); ?>" class="nav-link" <?php if ($this->session->userdata('username') != 'admin') echo 'hidden' ?>><i data-feather="monitor"></i><span>Dashboard</span></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') != 'admin') echo 'hidden' ?>><i data-feather="box"></i><span>Parcel</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/recordParcel'); ?>">Record
+                            <a href="<?php echo base_url('Dashboard/index'); ?>" class="nav-link" <?php if ($this->session->userdata('username') != 'admin')
+                                   echo 'hidden' ?>><i
+                                        data-feather="monitor"></i><span>Dashboard</span></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') != 'admin')
+                                   echo 'hidden' ?>><i
+                                        data-feather="box"></i><span>Parcel</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link" href="<?php echo base_url('Parcel/recordParcel'); ?>">Record
                                         Parcels</a></li>
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/parcelList'); ?>">Parcel List</a>
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/parcelList'); ?>">Parcel
+                                        List</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') != 'admin') echo 'hidden' ?>><i data-feather="dollar-sign"></i><span>Financial</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?php echo base_url('Finance/recordFinance'); ?>">Record
+                            <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') != 'admin')
+                                echo 'hidden' ?>><i
+                                        data-feather="dollar-sign"></i><span>Financial</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link" href="<?php echo base_url('Finance/recordFinance'); ?>">Record
                                         Finance</a></li>
-                                <li><a class="nav-link" href="<?php echo base_url('Finance/financialHistory'); ?>">Financial History</a>
+                                <li><a class="nav-link"
+                                        href="<?php echo base_url('Finance/financialHistory'); ?>">Financial History</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') == 'admin') echo 'hidden' ?>><i data-feather="users"></i><span>User</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?> ">Track
+                            <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') == 'admin')
+                                echo 'hidden' ?>><i
+                                        data-feather="users"></i><span>User</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?> ">Track
                                         Parcel</a></li>
 
                             </ul>
@@ -111,11 +129,13 @@
                                 <h6 class="font-medium m-b-10">Select Layout</h6>
                                 <div class="selectgroup layout-color w-50">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                                        <input type="radio" name="value" value="1"
+                                            class="selectgroup-input-radio select-layout" checked>
                                         <span class="selectgroup-button">Light</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                                        <input type="radio" name="value" value="2"
+                                            class="selectgroup-input-radio select-layout">
                                         <span class="selectgroup-button">Dark</span>
                                     </label>
                                 </div>
@@ -124,12 +144,16 @@
                                 <h6 class="font-medium m-b-10">Sidebar Color</h6>
                                 <div class="selectgroup selectgroup-pills sidebar-color">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
-                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip" data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                                        <input type="radio" name="icon-input" value="1"
+                                            class="selectgroup-input select-sidebar">
+                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                            data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
-                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip" data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                                        <input type="radio" name="icon-input" value="2"
+                                            class="selectgroup-input select-sidebar" checked>
+                                        <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip"
+                                            data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
                                     </label>
                                 </div>
                             </div>
@@ -164,7 +188,8 @@
                             <div class="p-15 border-bottom">
                                 <div class="theme-setting-options">
                                     <label class="m-b-0">
-                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" id="mini_sidebar_setting">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                            id="mini_sidebar_setting">
                                         <span class="custom-switch-indicator"></span>
                                         <span class="control-label p-l-10">Mini Sidebar</span>
                                     </label>
@@ -173,7 +198,8 @@
                             <div class="p-15 border-bottom">
                                 <div class="theme-setting-options">
                                     <label class="m-b-0">
-                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" id="sticky_header_setting">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                                            id="sticky_header_setting">
                                         <span class="custom-switch-indicator"></span>
                                         <span class="control-label p-l-10">Sticky Header</span>
                                     </label>
@@ -204,7 +230,8 @@
     <script src="<?php echo base_url(); ?>/assets/bundles/datatables/datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/bundles/sweetalert/sweetalert.min.js"></script>
 
-    <script src="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script
+        src="<?php echo base_url(); ?>/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- Page Specific JS File -->
@@ -219,7 +246,6 @@
     <!-- JS Libraies -->
     <script src="<?php echo base_url(); ?>/assets/bundles/chartjs/chart.min.js"></script>
     <!-- Page Specific JS File -->
-    <script src="<?php echo base_url(); ?>/assets/js/page/chart-chartjs.js"></script>
 
 
 

@@ -6,6 +6,8 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('DashboardModel');
+        $this->load->helper('url');
     }
 
     //display login page
@@ -29,22 +31,26 @@ class Login extends CI_Controller
 
         //if input same as declared username and password
         if ($username == 'admin' && $password == 'admin') {
-        
+
             //declaring session
             $this->session->set_userdata(array('username' => $username));
-             //display admin dashboard
-            $this->template->content->view('dashboard');
+            //display admin dashboard
+            //$this->template->content->view('dashboard');
+            redirect('Dashboard/index');
+            // $this->template->content->view('dashboard', $data);
 
             // Publish the template
             $this->template->publish();
-        } else{
+        } else {
             //display error message
-            $this->session->set_flashdata('error','Wrong username or password. Please try again.');
+            $this->session->set_flashdata('error', 'Wrong username or password. Please try again.');
             //display login page
             $this->template->content->view('login-page');
 
             // Publish the template
             $this->template->publish();
+            // // Publish the template
+            // $this->template->publish();
         }
     }
 
