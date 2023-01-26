@@ -92,10 +92,10 @@
 
         <div class="row">
 
-            <div class="col-12 col-md-6 col-lg-6">
+            <div class="col-lg-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Total Parcel Received by Months</h4>
+                    <div class="card-header d-flex">
+                        <h4 class="mr-auto">Total Parcel Received in 7 days</h4>
                     </div>
                     <div class="card-body">
                         <canvas id="myChart2"></canvas>
@@ -106,7 +106,7 @@
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Total Revenue by Months</h4>
+                        <h4>Total Revenue in 7 days</h4>
                     </div>
                     <div class="card-body">
                         <canvas id="revChart"></canvas>
@@ -117,3 +117,107 @@
 
     </div>
 </section>
+<script src="<?php echo base_url(); ?>/assets/bundles/chartjs/chart.min.js"></script>
+<script>
+
+
+    var ctx = document.getElementById("myChart2").getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [<?php foreach ($parcel as $p) {
+                echo '"' . $p->DateArrived . '",';
+            } ?>
+            ],
+            datasets: [{
+                label: 'Parcel Received',
+                data: [<?php foreach ($parcel as $s) {
+                    echo $s->total . ",";
+                } ?>],
+                borderWidth: 2,
+                backgroundColor: '#6777ef',
+                borderColor: '#6777ef',
+                borderWidth: 2.5,
+                pointBackgroundColor: '#ffffff',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    gridLines: {
+                        drawBorder: false,
+                        color: '#f2f2f2',
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 20,
+                        fontColor: "#9aa0ac", // Font Color
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        display: true
+                    },
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            },
+        }
+    });
+
+    var ctx = document.getElementById("revChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [<?php foreach ($revenue as $rvd) {
+                echo '"' . $rvd->DateClose . '",';
+            } ?>
+            ],
+            datasets: [{
+                label: 'Revenue',
+                data: [<?php foreach ($revenue as $rvt) {
+                    echo $rvt->total . ",";
+                } ?>],
+                borderWidth: 2,
+                backgroundColor: '#6777ef',
+                borderColor: '#6777ef',
+                borderWidth: 2.5,
+                pointBackgroundColor: '#ffffff',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    gridLines: {
+                        drawBorder: false,
+                        color: '#f2f2f2',
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 150,
+                        fontColor: "#9aa0ac", // Font Color
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        display: true
+                    },
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            },
+        }
+    });
+
+</script>

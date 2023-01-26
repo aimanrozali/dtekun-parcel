@@ -6,6 +6,8 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('DashboardModel');
+        $this->load->helper('url');
     }
 
     public function login()
@@ -22,14 +24,19 @@ class Login extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
+        $data['revenue'] = $this->DashboardModel->fetchRevenue();
+
+        $data['parcel'] = $this->DashboardModel->fetchParcelCount();
+
         if ($username == 'admin' && $password == 'admin') {
 
             //declaring session
             $this->session->set_userdata(array('username' => $username));
-            $this->template->content->view('dashboard');
+            redirect('Dashboard/index');
+            // $this->template->content->view('dashboard', $data);
 
-            // Publish the template
-            $this->template->publish();
+            // // Publish the template
+            // $this->template->publish();
         } else {
         }
     }
