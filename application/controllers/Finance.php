@@ -52,12 +52,31 @@ class Finance extends CI_Controller
 		$this->template->publish();
 	}
 
-	
+
 	public function delete($closingID)
 	{
 		$this->FinanceModel->deleteFinance($closingID);
 
 		if ($this->db->affected_rows() > 0) {
+			$response = array(
+				'status' => true,
+				'message' => 'Data deleted successfully'
+			);
+		} else {
+			$response = array(
+				'status' => false,
+				'message' => 'Error deleting data'
+			);
+		}
+		echo json_encode($response);
+	}
+
+	public function updateFinance()
+	{
+		$updateFin = $this->input->post();
+
+
+		if ($this->FinanceModel->updFinance($updateFin)) {
 			$response = array(
 				'status' => true,
 				'message' => 'Data deleted successfully'
