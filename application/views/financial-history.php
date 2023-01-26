@@ -163,46 +163,47 @@
         </div>
     </div>
 </form>
-<!-- End Modal Edit Parcel-->
+<!-- End Modal Edit Finance-->
 
 <script>
+
+    // get Edit Finance
+    $('.edit-btn').on('click', function () {
+        // get data from button edit
+        const closingID = $(this).attr('data-cID');
+        const totalCash = $(this).attr('data-tCash');
+        const closingManager = $(this).attr('data-cManager');
+        const totalOnline = $(this).attr('data-tOnline');
+        const closingDate = $(this).attr('data-cDate');
+
+        console.log(closingID);
+
+        // Set data to Form Edit
+        $('.closingDate').val(closingDate);
+        $('.closingManager').val(closingManager);
+        $('.totalOnline').val(totalOnline);
+        $('.totalCash').val(totalCash);
+        $('.closingID').val(closingID);
+        // Call Modal Edit
+        $('#editModal').modal('show');
+    });
+
+    $('#btn_update').on('click', function () {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>Finance/updateFinance",
+            data: $('form').serialize(),
+            success: function () {
+                $('.alert').removeClass('d-none');
+                $('.alert').html('Data updated successfully!').addClass('alert-success');
+                setTimeout(function () {
+                    $('.alert').addClass('d-none');
+                    location.reload();
+                }, 1300);
+            }
+        });
+    });
     $(document).ready(function () {
-        // get Edit Finance
-        $('.edit-btn').on('click', function () {
-            // get data from button edit
-            const closingID = $(this).attr('data-cID');
-            const totalCash = $(this).attr('data-tCash');
-            const closingManager = $(this).attr('data-cManager');
-            const totalOnline = $(this).attr('data-tOnline');
-            const closingDate = $(this).attr('data-cDate');
-
-            console.log(closingID);
-
-            // Set data to Form Edit
-            $('.closingDate').val(closingDate);
-            $('.closingManager').val(closingManager);
-            $('.totalOnline').val(totalOnline);
-            $('.totalCash').val(totalCash);
-            $('.closingID').val(closingID);
-            // Call Modal Edit
-            $('#editModal').modal('show');
-        });
-
-        $('#btn_update').on('click', function () {
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url(); ?>Finance/updateFinance",
-                data: $('form').serialize(),
-                success: function () {
-                    $('.alert').removeClass('d-none');
-                    $('.alert').html('Data updated successfully!').addClass('alert-success');
-                    setTimeout(function () {
-                        $('.alert').addClass('d-none');
-                        location.reload();
-                    }, 1300);
-                }
-            });
-        });
-
+        $('#table-1').DataTable();
     });
 </script>

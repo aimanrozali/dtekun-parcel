@@ -134,31 +134,33 @@
 <!-- End Modal Verify Parcel Status -->
 
 <script>
-  $(document).ready(function () {
 
-    $('.confirm-delete').click(function (e) {
 
-      e.preventDefault();
+  $('.confirm-delete').click(function (e) {
 
-      var trackingNum = $(this).val();
-      confirmDialog = confirm("Are you sure you want to delete this data?");
+    e.preventDefault();
 
-      if (confirmDialog) {
-        $.ajax({
-          type: "POST",
-          url: "<?php echo base_url("Parcel/delete/"); ?>" + trackingNum,
-          dataType: "json",
-          success: function (response) {
-            if (response.status == true) {
-              alert("Data deleted successfully");
-              location.reload();
-            } else {
-              alert("Error deleting data");
-            }
+    var trackingNum = $(this).val();
+    confirmDialog = confirm("Are you sure you want to delete this data?");
+
+    if (confirmDialog) {
+      $.ajax({
+        type: "POST",
+        url: "<?php echo base_url("Parcel/delete/"); ?>" + trackingNum,
+        dataType: "json",
+        success: function (response) {
+          if (response.status == true) {
+            alert("Data deleted successfully");
+            location.reload();
+          } else {
+            alert("Error deleting data");
           }
-        });
-      }
-    });
+        }
+      });
+    }
+  });
+  $(document).ready(function () {
+    $('#table-1').DataTable();
   });
 </script>
 
@@ -236,45 +238,46 @@
 <!-- End Modal Edit Parcel-->
 
 <script>
+
+  // get Edit Parcel
+  $('.edit-btn').on('click', function () {
+    // get data from button edit
+    const tagID = $(this).data('tagid');
+    const tracking_number = $(this).data('tracknum');
+    const parcel_name = $(this).data('name');
+    const parcel_phone = $(this).data('phone');
+    const parcel_courier = $(this).data('courier');
+    const parcel_size = $(this).data('size');
+
+    console.log(tracking_number);
+
+    // Set data to Form Edit
+    $('.tagID').val(tagID);
+    $('.tracking_number').val(tracking_number);
+    $('.parcel_name').val(parcel_name);
+    $('.parcel_phone').val(parcel_phone);
+    $('.parcel_courier').val(parcel_courier).trigger('change');
+    $('.parcel_size').val(parcel_size).trigger('change');
+    // Call Modal Edit
+    $('#editModal').modal('show');
+  });
+
+  $('#btn_update').on('click', function () {
+    $.ajax({
+      type: "POST",
+      url: "<?php echo base_url(); ?>Parcel/update",
+      data: $('form').serialize(),
+      success: function () {
+        $('.alert').removeClass('d-none');
+        $('.alert').html('Data updated successfully!').addClass('alert-success');
+        setTimeout(function () {
+          $('.alert').addClass('d-none');
+          location.reload();
+        }, 1300);
+      }
+    });
+  });
   $(document).ready(function () {
-    // get Edit Parcel
-    $('.edit-btn').on('click', function () {
-      // get data from button edit
-      const tagID = $(this).data('tagid');
-      const tracking_number = $(this).data('tracknum');
-      const parcel_name = $(this).data('name');
-      const parcel_phone = $(this).data('phone');
-      const parcel_courier = $(this).data('courier');
-      const parcel_size = $(this).data('size');
-
-      console.log(tracking_number);
-
-      // Set data to Form Edit
-      $('.tagID').val(tagID);
-      $('.tracking_number').val(tracking_number);
-      $('.parcel_name').val(parcel_name);
-      $('.parcel_phone').val(parcel_phone);
-      $('.parcel_courier').val(parcel_courier).trigger('change');
-      $('.parcel_size').val(parcel_size).trigger('change');
-      // Call Modal Edit
-      $('#editModal').modal('show');
-    });
-
-    $('#btn_update').on('click', function () {
-      $.ajax({
-        type: "POST",
-        url: "<?php echo base_url(); ?>Parcel/update",
-        data: $('form').serialize(),
-        success: function () {
-          $('.alert').removeClass('d-none');
-          $('.alert').html('Data updated successfully!').addClass('alert-success');
-          setTimeout(function () {
-            $('.alert').addClass('d-none');
-            location.reload();
-          }, 1300);
-        }
-      });
-    });
-
+    $('#table-1').DataTable();
   });
 </script>
