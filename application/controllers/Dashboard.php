@@ -16,9 +16,9 @@ class Dashboard extends CI_Controller
 	//display dashboard
 	public function index()
 	{
-		$data['sales'] = $this->DashboardModel->fetchSales();
+		$data['sales'] = array_reverse($this->DashboardModel->fetchSales(), true);
 
-		$data['parcel'] = $this->DashboardModel->fetchParcelCount();
+		$data['parcel'] = array_reverse($this->DashboardModel->fetchParcelCount(), true);
 
 		$this->template->content->view('dashboard', $data);
 

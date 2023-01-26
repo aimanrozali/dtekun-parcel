@@ -155,7 +155,7 @@
                     },
                     ticks: {
                         beginAtZero: true,
-                        stepSize: 20,
+                        stepSize: 2,
                         fontColor: "#9aa0ac", // Font Color
                     }
                 }],
