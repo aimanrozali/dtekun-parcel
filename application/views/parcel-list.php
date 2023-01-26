@@ -168,7 +168,7 @@
 
                 <div class="form-group">
                     <label>Tracking Number</label>
-                    <input type="text" class="form-control tracking_number" name="tracking_number" placeholder="Tracking Number" required>
+                    <input type="text" class="form-control tracking_number" name="tracking_number" placeholder="Tracking Number" disabled>
                 </div>
              
                 <div class="form-group">
