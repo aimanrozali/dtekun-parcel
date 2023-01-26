@@ -3,13 +3,17 @@
   <div class="section-body">
 
   <!--Success Alert when Data Inserted-->
-  <?php if($this->session->flashdata('status')):?>
-          <div class= "alert alert-success">
+  <?php if($this->session->flashdata('status')){?>
+          <div class= "alert alert-success col-6 m-auto">
             <?= $this->session->flashdata('status');?>
         </div>
-        <?php endif;?>
+        <?php } elseif($this->session->flashdata('error')){?>
+          <div class= "alert alert-danger col-6 m-auto">
+            <?= $this->session->flashdata('error');?>
+        </div>
+          <?php }?>
 
-    <div class="card">
+    <div class="card mt-4">
       <div class="card-header">
        <h4>Insert Parcel Details</h4>
       </div>
@@ -25,7 +29,7 @@
         <div class="form-group row">
           <label for="inputTrackNum" class="col-sm-3 col-form-label">Tracking Number</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputTrackNum" name= "trackingNum" placeholder="Enter tracking number" required>
+            <input type="text" class="form-control" id="inputTrackNum" name= "trackingNum" placeholder="Enter tracking number" required >
           </div>
         </div>
         <!--Input custName-->
