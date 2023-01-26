@@ -17,12 +17,11 @@
                                         <th class="text-center">
                                             #
                                         </th>
-                                        <th class="text-center"> PIC </th>
-                                        <th class="text-center"> Total Sales (RM)</th>
+                                        <th class="text-center"> Date</th>
+                                        <th class="text-center"> Closing Manager </th>
                                         <th class="text-center"> Online Transaction (RM)</th>
                                         <th class="text-center"> Cash Transaction (RM)</th>
-                                        <th class="text-center"> Revenue (RM)</th>
-                                        <th class="text-center"> Date</th>
+                                        <th class="text-center"> Total Sales (RM)</th>
                                         <th class="text-center"> Action</th>
 
                                     </tr>
@@ -34,14 +33,15 @@
                                             <td>
                                                 <?php echo $i++; ?>
                                             </td>
+                                            <!-- Date Closing -->
+                                            <td class="text-center">
+                                                <?php echo $row->closing_date; ?>
+                                            </td>
                                             <!-- PIC Closing -->
                                             <td class="text-center">
                                                 <?php echo $row->closing_manager; ?>
                                             </td>
-                                            <!-- Total Sales -->
-                                            <td class="text-center">
-                                                <?php echo $row->total_sales; ?>
-                                            </td>
+
                                             <!-- Total Online -->
                                             <td class="text-center">
                                                 <?php echo $row->total_online; ?>
@@ -50,21 +50,22 @@
                                             <td class="text-center">
                                                 <?php echo $row->total_cash; ?>
                                             </td>
-                                            <!-- Total Revenue -->
+                                            <!-- Total Sales -->
                                             <td class="text-center">
-                                                <?php echo $row->total_revenue; ?>
+                                                <?php echo $row->total_sales; ?>
                                             </td>
-                                            <!-- Date Closing -->
-                                            <td class="text-center">
-                                                <?php echo $row->closing_date; ?>
-                                            </td>
+
                                             <td class="text-center">
 
                                                 <button type="button" class="btn btn-danger btn-sm confirm-delete"
                                                     value="<?php echo $row->closing_ID ?>">
                                                     <i class="fa fa-trash"></i></button>
 
-                                                <button type="button" class="btn btn-primary btn-sm"><i
+                                                <button type="button" class="btn btn-primary btn-sm edit-btn"
+                                                    data-cID="<?= $row->closing_ID; ?>"
+                                                    data-cManager="<?= $row->closing_manager; ?>"
+                                                    data-tOnline="<?= $row->total_online; ?>"
+                                                    data-cDate="<?= $row->closing_date; ?>"><i
                                                         class="fa fa-edit"></i></button>
                                             </td>
                                         </tr>
@@ -109,5 +110,98 @@
     });
     $(document).ready(function () {
         $('#table-1').DataTable();
+    });
+</script>
+
+<!-- Modal Edit Finance-->
+<form action="<?php echo base_url(); ?>Finance/updateFinance" method="post">
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Closing Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert d-none"></div>
+                    <div class="form-group">
+                        <label>Closing Date</label>
+                        <input type="text" class="form-control closingDate" name="closingDate"
+                            placeholder="Closing Date" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Closing Manager</label>
+                        <input type="text" class="form-control closingManager" name="closingManager"
+                            placeholder="Closing Manager" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Online Transaction</label>
+                        <input type="text" class="form-control totalOnline" name="total_online"
+                            placeholder="Total Online Transaction" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Cash</label>
+                        <input type="text" class="form-control totalCash" name="total_cash" placeholder="Total Cash"
+                            required>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="closingID" class="closingID">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="btn_update" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- End Modal Edit Parcel-->
+
+<script>
+    $(document).ready(function () {
+        // get Edit Finance
+        $('.edit-btn').on('click', function () {
+            // get data from button edit
+            const closingDate = $(this).data('cDate');
+            const closingManager = $(this).data('cManager');
+            const totalOnline = $(this).data('tOnline');
+            const totalCash = $(this).data('tCash');
+            const closingID = $(this).data('cID');
+
+            console.log(closingID);
+
+            // Set data to Form Edit
+            $('.closingDate').val(closingDate);
+            $('.closingManager').val(closingManager);
+            $('.totalOnline').val(totalOnline);
+            $('.totalCash').val(totalCash);
+            $('#closing_ID').val(closingID);
+            // Call Modal Edit
+            $('#editModal').modal('show');
+        });
+
+        $('#btn_update').on('click', function () {
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>Finance/updateFinance",
+                data: $('form').serialize(),
+                success: function () {
+                    $('.alert').removeClass('d-none');
+                    $('.alert').html('Data updated successfully!').addClass('alert-success');
+                    setTimeout(function () {
+                        $('.alert').addClass('d-none');
+                        location.reload();
+                    }, 1300);
+                }
+            });
+        });
+
     });
 </script>

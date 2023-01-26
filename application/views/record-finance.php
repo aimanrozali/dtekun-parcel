@@ -38,27 +38,6 @@
                                 placeholder="Enter Total Cash" aria-required="true">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Total Opening Next Day</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" id="totalOpening" name="totalOpening"
-                                placeholder="Enter Opening Next Day" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Cash In Hand</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" id="totalCashManager" name="totalCashManager"
-                                placeholder="Enter Total Cash to Manager" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-3 col-form-label">Pass Cash to Manager</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="cashToManager" name="cashToManager"
-                                placeholder="Enter Manager Name" required>
-                        </div>
-                    </div>
 
                     <div class="text-center">
                         <button class="btn btn-primary" type="submit" name="submit">Save</button>

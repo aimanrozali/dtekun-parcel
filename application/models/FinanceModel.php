@@ -17,16 +17,16 @@ class FinanceModel extends CI_Model
 
   }
 
-  public function getRevenue($totalSales)
-  {
-    // $dateBefore = date_create($closingDate)->modify('-1 days')->format('Y-m-d');
+  // public function getRevenue($totalSales)
+  // {
+  //   // $dateBefore = date_create($closingDate)->modify('-1 days')->format('Y-m-d');
 
-    //Fetch Latest Total Opening 
-    $sql = "SELECT openingNextDay FROM Finance ORDER BY closing_ID DESC LIMIT 1";
+  //   //Fetch Latest Total Opening 
+  //   $sql = "SELECT openingNextDay FROM Finance ORDER BY closing_ID DESC LIMIT 1";
 
-    $totalOpeningBefore = $this->db->query($sql)->result();
-    return $totalSales - $totalOpeningBefore[0]->openingNextDay;
-  }
+  //   $totalOpeningBefore = $this->db->query($sql)->result();
+  //   return $totalSales - $totalOpeningBefore[0]->openingNextDay;
+  // }
 
   public function saveFinance($finance)
   {
@@ -36,13 +36,9 @@ class FinanceModel extends CI_Model
     $totalCash = $finance['totalCash'];
     $totalOnline = $finance['totalOnline'];
     $totalSales = $totalCash + $totalOnline;
-    $revenue = $this->getRevenue($totalSales);
-    $cashInHand = $finance['totalCashManager'];
-    $cashToManager = $finance['cashToManager'];
-    $openingNextDay = $finance['totalOpening'];
 
     //Create Into Query
-    $query = array('closing_date' => $closing_date, 'closing_manager' => $closingManager, 'total_cash' => $totalCash, 'total_Online' => $totalOnline, 'total_sales' => $totalSales, 'total_revenue' => $revenue, 'cash_in_hand' => $cashInHand, 'cash_to_manager' => $cashToManager, 'openingNextDay' => $openingNextDay);
+    $query = array('closing_date' => $closing_date, 'closing_manager' => $closingManager, 'total_cash' => $totalCash, 'total_Online' => $totalOnline, 'total_sales' => $totalSales);
 
     //Save to DB
     if ($this->db->insert('Finance', $query)) {
@@ -54,6 +50,25 @@ class FinanceModel extends CI_Model
   public function deleteFinance($closingID)
   {
     return $this->db->delete('Finance', ['closing_ID' => $closingID]);
+  }
+
+  public function update_data($finupd)
+  {
+
+    //Separate Data
+    $closing_date = $finupd['closingDate'];
+    $closingManager = $finupd['picClosing'];
+    $totalCash = $finupd['totalCash'];
+    $totalOnline = $finupd['totalOnline'];
+    $totalSales = $totalCash + $totalOnline;
+
+    //Create Into Query
+    $query = array('closing_date' => $closing_date, 'closing_manager' => $closingManager, 'total_cash' => $totalCash, 'total_Online' => $totalOnline, 'total_sales' => $totalSales);
+
+    $this->db->where('closing_ID', $finupd['closing_ID']);
+    $this->db->update('Finance', $query);
+
+    return $this->db->affected_rows();
   }
 }
 

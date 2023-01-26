@@ -106,7 +106,7 @@
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Total Revenue in 7 days</h4>
+                        <h4>Total Sales in 7 days</h4>
                     </div>
                     <div class="card-body">
                         <canvas id="revChart"></canvas>
@@ -175,13 +175,13 @@
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: [<?php foreach ($revenue as $rvd) {
+            labels: [<?php foreach ($sales as $rvd) {
                 echo '"' . $rvd->DateClose . '",';
             } ?>
             ],
             datasets: [{
                 label: 'Revenue',
-                data: [<?php foreach ($revenue as $rvt) {
+                data: [<?php foreach ($sales as $rvt) {
                     echo $rvt->total . ",";
                 } ?>],
                 borderWidth: 2,

@@ -16,9 +16,9 @@ class DashboardModel extends CI_Model
     return $res->result();
   }
 
-  function fetchRevenue()
+  function fetchSales()
   {
-    $sql = "SELECT closing_date as DateClose, SUM(total_revenue) as total FROM Finance GROUP BY closing_date order by closing_date ASC;";
+    $sql = "SELECT closing_date as DateClose, SUM(total_sales) as total FROM Finance GROUP BY closing_date order by closing_date ASC;";
 
     return $this->db->query($sql)->result();
   }
