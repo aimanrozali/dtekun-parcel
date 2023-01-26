@@ -3,6 +3,7 @@
 class Dashboard extends CI_Controller
 {
 
+	//constructor
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,6 +13,7 @@ class Dashboard extends CI_Controller
 
 	}
 
+	//display dashboard
 	public function index()
 	{
 		$data['revenue'] = $this->DashboardModel->fetchRevenue();

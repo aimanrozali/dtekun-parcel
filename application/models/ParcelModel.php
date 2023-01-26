@@ -15,22 +15,6 @@ class ParcelModel extends CI_Model
         return $query->result();
     }
 
-    public function login_admin(){
-        $email=$this->input->post('email');
-        $password=$this->input->post('password');
-        $this->db->where('email', $email);
-        $this->db->where('password',$password);
-        $query=$this->db->get('admin'); 
-        $find_admin=$query->num_rows($query);
-        
-        if($find_admin>0){
-        redirect ('Dashboard/index');
-        }else{
-            $this->session->set_flashdata('status','Invalid Account. Please try again!');
-        redirect ('Parcel/login');
-        }
-    }
-
     //save parcel record
     public function save($capsule)
     {

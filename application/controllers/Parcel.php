@@ -2,7 +2,7 @@
 
 class Parcel extends CI_Controller
 {
-
+	//constructor
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,12 +12,10 @@ class Parcel extends CI_Controller
 
 	}
 
-
+	//track and trace parcel function
 	public function index()
 	{
-
 		//track parcel
-
 		$trackingNum = $this->input->get('trackingNum');
 
 		if($trackingNum){
@@ -41,6 +39,7 @@ class Parcel extends CI_Controller
 		$this->template->publish();
 	}
 	
+	//display list of parcels
 	public function parcelList()
 	{
 		// retrieve data from model
@@ -53,7 +52,7 @@ class Parcel extends CI_Controller
 		$this->template->publish();
 	}
 
-
+	//display parcel record form
 	public function recordParcel()
 	{
 		$this->template->content->view('record-parcel');
@@ -62,6 +61,7 @@ class Parcel extends CI_Controller
 		$this->template->publish();
 	}
 
+	//store parcel data into database
 	public function data_insert()
 	{
 		$taggingNum = $this->input->post('parcelTag');
@@ -81,7 +81,7 @@ class Parcel extends CI_Controller
 
 		$capsule = array('tagID' => $taggingNum, 'tracking_number' => $trackingNo, 'parcel_name' => $cust, 'parcel_phone' => $phone, 'parcel_courier' => $cour, 'parcel_size' => $size, 'price' => $price);
 
-		
+		//display success message if saved
 		if($this->ParcelModel->save($capsule)){
 			$this->session->set_flashdata('status','Parcel Recorded Successfully!');
 			redirect('Parcel/recordParcel');
@@ -89,6 +89,7 @@ class Parcel extends CI_Controller
 
 	}
 
+	//verify status of parcel
 	public function change_status()
 	{
 		//get hidden values in variables
@@ -113,7 +114,7 @@ class Parcel extends CI_Controller
 		return redirect('Parcel/parcelList');
 	}
 
-
+	//delete parcel from list
 	public function delete($trackingNo)
 	{
 
@@ -134,6 +135,7 @@ class Parcel extends CI_Controller
 		echo json_encode($response);
 	}
 
+	//update/edit parcel details from list
 	public function update() 
 	{
         $tracking_number = $this->input->post('tracking_number');
@@ -160,6 +162,7 @@ class Parcel extends CI_Controller
 
         $this->ParcelModel->update_data($tracking_number, $data);
         
+		//display message
 		if ($this->db->affected_rows() > 0) {
 			$response = array(
 				'status' => true,

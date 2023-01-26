@@ -1,6 +1,5 @@
 <section>
   <div class="col-12">
-
     <div class="col-6 m-auto alert alert-info alert-has-icon">
       <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
       <div class="alert-body">
@@ -8,7 +7,6 @@
         Please enter your tracking number to see your parcel status.
       </div>
     </div>
-
 
     <div class="card mt-4">
       <div class="card-body">
@@ -41,7 +39,7 @@
                 <?php
                 foreach ($search as $row) { ?>
                   <tr>
-                    <!-- Trackin Number -->
+                    <!-- Tracking Number -->
                     <td class="text-center">
                       <?php echo $row->tracking_number; ?>
                     </td>
@@ -74,6 +72,7 @@
         <table class="m-auto">
           <thead>
             <tr>
+               <!-- Parcel not in database -->
               <?php if ($empty == 2) { ?>
                 <th class="text-center"></th>
               <?php } else { ?>
@@ -83,9 +82,12 @@
           </thead>
         </table>
       <?php } ?>
-      </div>
+      
+      </div>    
     </div>
   </div>
   </div>
   </div>
+
 </section>
+

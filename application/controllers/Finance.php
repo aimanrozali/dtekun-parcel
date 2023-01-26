@@ -2,7 +2,7 @@
 
 class Finance extends CI_Controller
 {
-
+	//constructor
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,6 +12,7 @@ class Finance extends CI_Controller
 
 	}
 
+	//display record finance page
 	public function recordFinance()
 	{
 		$this->template->content->view('record-finance');
@@ -40,15 +41,18 @@ class Finance extends CI_Controller
 
 	}
 
+	//display financial history
 	public function financialHistory()
 	{
-
+		//get data from fetchAllFinance in Finance Model
 		$data['financehist'] = $this->FinanceModel->fetchAllFinance();
 		$this->template->content->view('financial-history', $data);
 
 		// Publish the template
 		$this->template->publish();
 	}
+
+	
 	public function delete($closingID)
 	{
 		$this->FinanceModel->deleteFinance($closingID);

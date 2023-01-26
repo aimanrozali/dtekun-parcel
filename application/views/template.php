@@ -48,12 +48,19 @@
                             </p>
                             <a href="<?php echo base_url('Login/login'); ?>"
                                 class="dropdown-item has-icon text-success"> <i class="fas fa-sign-in-alt"></i>
-                                Admin Login
-                            </a>
-                            <a href="<?php echo base_url('Login/logout'); ?>"
-                                class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-                                Logout
-                            </a>
+                                <p class="text-center">Hello
+                                    <?php echo $this->session->userdata('username'); ?>
+                                </p>
+                                <a href="<?php echo base_url('Login/login'); ?>"
+                                    class="dropdown-item has-icon text-success" <?php if ($this->session->userdata('username') == 'admin')
+                                        echo 'hidden' ?>> <i
+                                            class="fas fa-sign-in-alt"></i>
+                                        Admin Login
+                                    </a>
+                                    <a href="<?php echo base_url('Login/logout'); ?>"
+                                    class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
                         </div>
                     </li>
                 </ul>
@@ -100,7 +107,7 @@
                             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                                     data-feather="users"></i><span>User</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?>">Track
+                                <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?> ">Track
                                         Parcel</a></li>
 
                             </ul>

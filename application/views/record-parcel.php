@@ -1,10 +1,8 @@
 <section>
-
-
   <form class="section" method="post" action="<?=base_url()?>Parcel/data_insert"> 
   <div class="section-body">
 
-<!--Success Alert when Data Inserted-->
+  <!--Success Alert when Data Inserted-->
   <?php if($this->session->flashdata('status')):?>
           <div class= "alert alert-success">
             <?= $this->session->flashdata('status');?>
@@ -40,9 +38,9 @@
         <!--Input phoneNum-->
         <div class="form-group row">
           <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputPhone" name= "phoneNum" placeholder="Enter phone number" required>
-          </div>
+            <div class="col-sm-9">
+               <input type="text" class="form-control" id="inputPhone" name= "phoneNum" placeholder="Enter phone number" required>
+            </div>
         </div>
         <!--Choose courier-->
         <fieldset class="form-group">
