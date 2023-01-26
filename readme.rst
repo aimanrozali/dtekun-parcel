@@ -1,71 +1,10 @@
 ###################
-What is CodeIgniter
+D-Tekun Parcel Management System
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
 
-*******************
-Release Information
-*******************
+D’Tekun Parcel Management System is a parcel management and tracking web application developed for D'Tekun Parcel Hub to ease the process of managing incoming and outgoing parcels, for residents from Desasiswa Restu, Tekun and Saujana in Universiti Sains Malaysia. Our client for this system is Mr. Kang Khai Sian, a final-year student who is the head manager of D'Tekun Parcel Hub at USM. 
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+The idea of developing this web application came into view as the management team of D'Tekun Parcel Hub have been utilising a manual system since the beginning to record all the parcel’s information. This situation can be quite difficult to track each parcel on a daily basis as sometimes it can go unnoticed by the staff when the parcel has been delivered. It also takes up a lot of time as they need to manually key in all the data into the system which has to be stored in a new spreadsheet every day.
 
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
-
-*******************
-Server Requirements
-*******************
-
-PHP version 5.6 or newer is recommended.
-
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
-
-************
-Installation
-************
-
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+On top of that, this situation would be difficult for them to manage a load of data especially for the finance department that handles the closing everyday. Therefore, one of our objectives through this project is to develop an interactive web application that helps our client and his team to record and store all parcel’s information into the system more efficiently through an automated system. From there, users can search for the parcel more easily to view the status, verify the parcel status, and generate daily finance receipts.
