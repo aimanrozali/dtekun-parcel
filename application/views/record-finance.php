@@ -4,7 +4,17 @@
 <section>
     <form id="form" class="section" method="post" action="<?= base_url() ?>Finance/submitClosing">
         <div class="section-body">
-            <div class="card col-sm-6 m-auto">
+            <!--Success Alert when Data Inserted-->
+            <?php if ($this->session->flashdata('status')) { ?>
+                <div class="alert alert-success col-6 m-auto">
+                    <?= $this->session->flashdata('status'); ?>
+                </div>
+            <?php } elseif ($this->session->flashdata('error')) { ?>
+                <div class="alert alert-danger col-6 m-auto">
+                    <?= $this->session->flashdata('error'); ?>
+                </div>
+            <?php } ?>
+            <div class="card mt-4">
                 <div class="card-header">
                     <h4>Insert Closing Details</h4>
                 </div>
@@ -46,29 +56,3 @@
 
     </div>
 </section>
-<script>
-    $(document).ready(function () {
-        $('#form').submit(function (e) {
-            e.preventDefault();
-
-            var form = $(this);
-            var actionUrl = form.attr('action');
-
-            $.ajax({
-                type: "POST",
-                url: actionUrl,
-                data: form.serialize(),
-                dataType: "json",
-                success: function (response) {
-                    if (response.status == true) {
-                        alert("Data Submitted");
-                        document.getElementById("form").reset();
-                        e.preventDefault();
-                    } else {
-                        alert("Error Submitting Data");
-                    }
-                }
-            });
-        });
-    });
-</script>

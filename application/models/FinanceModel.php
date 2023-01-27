@@ -44,7 +44,7 @@ class FinanceModel extends CI_Model
     if ($this->db->insert('Finance', $query)) {
       return "Data Inserted";
     } else {
-      return "Failed to Insert Closing Details";
+      return $this->db->error();
     }
   }
   public function deleteFinance($closingID)
@@ -52,12 +52,12 @@ class FinanceModel extends CI_Model
     return $this->db->delete('Finance', ['closing_ID' => $closingID]);
   }
 
-  public function update_data($finupd)
+  public function updFinance($finupd)
   {
 
     //Separate Data
     $closing_date = $finupd['closingDate'];
-    $closingManager = $finupd['picClosing'];
+    $closingManager = $finupd['closingManager'];
     $totalCash = $finupd['totalCash'];
     $totalOnline = $finupd['totalOnline'];
     $totalSales = $totalCash + $totalOnline;
