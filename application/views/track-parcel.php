@@ -1,5 +1,5 @@
 <section>
-  <div class="col-12">
+  <div class="">
     <div class="col-6 m-auto alert alert-info alert-has-icon">
       <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
       <div class="alert-body">

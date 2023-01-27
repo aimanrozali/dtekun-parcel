@@ -52,8 +52,10 @@
                                         class="fas fa-sign-in-alt"></i>
                                     Admin Login
                                 </a>
-                                <a href="<?php echo base_url('Login/logout'); ?>"
-                                class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                                <a href="<?php echo base_url('Login/logout');?> "
+                                class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"
+     
+                                ></i>
                                 Logout
                             </a>
                         </div>
@@ -101,7 +103,7 @@
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown" <?php if ($this->session->userdata('username') == 'admin')
                                 echo 'hidden' ?>><i
-                                        data-feather="users"></i><span>User</span></a>
+                                        data-feather="home"></i><span>Home</span></a>
                                 <ul class="dropdown-menu">
                                     <li><a class="nav-link" href="<?php echo base_url('Parcel/index'); ?> ">Track
                                         Parcel</a></li>
